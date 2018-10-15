@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csharp_fileutil", "csharp_fileutil.csproj", "{6F23EBF6-3A91-45A2-BF5F-FE8C1A590836}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpFileutil", "CsharpFileutil.csproj", "{6F23EBF6-3A91-45A2-BF5F-FE8C1A590836}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
