@@ -10,8 +10,9 @@ namespace csharp_fileutil.CommandEngine
     public abstract class AbstractCommand
     {
         protected List<string> Arguments { get; private set; }
-        private readonly IList<String> AvailableCommands = 
+        private static readonly IList<String> AvailableCommands = 
                                        new ReadOnlyCollection<string> (new List <string> { "usage", "exit" });
+        public static readonly string UsageString = "placeholder";
 
         public AbstractCommand(List<string> args)
         {
