@@ -19,10 +19,6 @@ namespace csharp_fileutil.CommandEngine
         {
             switch (Arguments[0])
             {
-                case "test1":
-                    return new Test1Command(Arguments.Skip(1).ToList<string>());
-                case "test2":
-                    return new Test2Command(Arguments.Skip(1).ToList<string>());
                 case "exit":
                     return new ExitCommand(Arguments.Skip(1).ToList<string>());
                 case "usage":

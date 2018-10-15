@@ -11,7 +11,7 @@ namespace csharp_fileutil.CommandEngine
     {
         protected List<string> Arguments { get; private set; }
         private readonly IList<String> AvailableCommands = 
-                                       new ReadOnlyCollection<string> (new List <string> { "test1", "test2", "usage", "exit" });
+                                       new ReadOnlyCollection<string> (new List <string> { "usage", "exit" });
 
         public AbstractCommand(List<string> args)
         {
@@ -24,32 +24,6 @@ namespace csharp_fileutil.CommandEngine
         }
 
         public abstract void Execute();
-    }
-
-    public class Test1Command : AbstractCommand
-    {
-        public Test1Command(List<string> args): base(args)
-        {
-            
-        }
-
-        public override void Execute()
-        {
-            Console.WriteLine("Test 1: {0}.", String.Join(", ", Arguments));
-        }
-    }
-
-    public class Test2Command : AbstractCommand
-    {
-        public Test2Command(List<string> args) : base(args)
-        {
-
-        }
-
-        public override void Execute()
-        {
-            Console.WriteLine("Test 2: {0}.", String.Join(", ", Arguments));
-        }
     }
 
     public class UsageCommand : AbstractCommand
