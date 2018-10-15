@@ -10,7 +10,7 @@ namespace csharp_fileutil
     {
         static void Main(string[] args)
         {
-            new CommandEngine.CommandInterpreter().Run();
+            new CommandInterpreter().Run();
             Console.ReadKey();
         }
     }

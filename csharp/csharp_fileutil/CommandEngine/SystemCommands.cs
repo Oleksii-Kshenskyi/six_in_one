@@ -36,7 +36,6 @@ namespace csharp_fileutil.CommandEngine
                         Console.WriteLine("Usage doesn't know this command.");
                         Console.WriteLine("Available commands: {0}.", GetAvailableCommands());
                         break;
-
                 }
         }
     }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace csharp_fileutil.CommandEngine
+namespace csharp_fileutil
 {
     public class CommandInterpreter
     {
@@ -15,7 +15,7 @@ namespace csharp_fileutil.CommandEngine
                 Console.Write("===> ");
                 string choice = Console.ReadLine();
                 List<string> arguments = new List<string>(choice.Split(new char[] {' '}, StringSplitOptions.RemoveEmptyEntries));
-                new CommandFactory(arguments).Create().Execute();
+                new CommandEngine.CommandFactory(arguments).Create().Execute();
             }
         }
 
