@@ -45,6 +45,7 @@
     <Compile Include="CommandEngine\AbstractCommand.cs" />
     <Compile Include="CommandEngine\CommandFactory.cs" />
     <Compile Include="CommandEngine\CommandInterpreter.cs" />
+    <Compile Include="CommandEngine\SystemCommands.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
