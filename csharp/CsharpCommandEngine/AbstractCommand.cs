@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CsharpFileutil.CommandEngine
+namespace CsharpCommandEngine
 {
     public abstract class AbstractCommand
     {

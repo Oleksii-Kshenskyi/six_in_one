@@ -15,7 +15,7 @@ namespace CsharpFileutil
                 Console.Write("===> ");
                 string choice = Console.ReadLine();
                 List<string> arguments = new List<string>(choice.Split(new char[] {' '}, StringSplitOptions.RemoveEmptyEntries));
-                new CommandEngine.CommandFactory(arguments).Create().Execute();
+                new CsharpCommandEngine.CommandFactory(arguments).Create().Execute();
             }
         }
 

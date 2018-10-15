@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CsharpFileutil.CommandEngine
+namespace CsharpCommandEngine
 {
-    class CommandFactory
+    public class CommandFactory
     {
         private List<String> Arguments { get; set; }
 

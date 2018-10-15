@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{6F23EBF6-3A91-45A2-BF5F-FE8C1A590836}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>csharp_fileutil</RootNamespace>
-    <AssemblyName>csharp_fileutil</AssemblyName>
+    <RootNamespace>CsharpFileutil</RootNamespace>
+    <AssemblyName>CsharpFileutil</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -42,15 +42,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommandEngine\AbstractCommand.cs" />
-    <Compile Include="CommandEngine\CommandFactory.cs" />
     <Compile Include="CommandInterpreter.cs" />
-    <Compile Include="CommandEngine\SystemCommands.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CsharpCommandEngine\CsharpCommandEngine.csproj">
+      <Project>{b3c6a5be-133a-4171-b797-8a5cfcd5872f}</Project>
+      <Name>CsharpCommandEngine</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
