@@ -1,6 +1,8 @@
 # six_in_one
 Basic idea of this repo is to get one app done in six languages: C++, C#, Python, Java, Ruby, JavaScript.
 
+Current status: implementing the C# version.
+
 So far there is one project which is a console file utility which has:
 - File move operation;
 - File copy operation;
