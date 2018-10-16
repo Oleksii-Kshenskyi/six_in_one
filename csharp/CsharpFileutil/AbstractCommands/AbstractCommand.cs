@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 
 namespace CsharpCommandEngine
 {
@@ -11,7 +9,7 @@ namespace CsharpCommandEngine
     {
         protected List<string> Arguments { get; private set; }
         private static readonly IList<String> AvailableCommands = 
-                                       new ReadOnlyCollection<string> (new List <string> { "usage", "exit" });
+                                       new ReadOnlyCollection<string> (new List <string> { "usage", "exit", "copy" });
         public static readonly string UsageString = "placeholder";
 
         public AbstractCommand(List<string> args)

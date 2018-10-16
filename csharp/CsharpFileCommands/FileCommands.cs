@@ -1,0 +1,40 @@
+﻿using System;
+using System.IO;
+using System.Collections.Generic;
+using CsharpCommandEngine;
+
+namespace CsharpFileCommands
+{
+    public class CopyCommand: AbstractFileCommand
+    {
+        public new static readonly string UsageString =
+           "copy command copies <file1> to the location specified in <file2>.\n" +
+           "Use it the following way:\n" +
+           "\t'copy <file1> to <file2>'\n" +
+           "\t" + AbstractFileCommand.UsageString;
+
+        public CopyCommand(List<string> args) : base(args)
+        {
+
+        }
+
+        public override void Execute()
+        {
+            if (!AllowedToExecute)
+                return;
+
+            try
+            {
+                File.Copy(Arguments[0], Arguments[2]);
+            }
+            catch (Exception e)
+            {
+                if (e.Source != null && e.Source != "")
+                    Console.WriteLine("Copy exception: '", e.Source, "'.");
+                else
+                    Console.WriteLine("An unrecognized copy exception occured.");
+            }
+
+        }
+    }
+}

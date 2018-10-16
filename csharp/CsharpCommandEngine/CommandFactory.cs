@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using CsharpFileCommands;
 
 namespace CsharpCommandEngine
 {
@@ -24,6 +23,8 @@ namespace CsharpCommandEngine
                         return new ExitCommand(Arguments.Skip(1).ToList<string>());
                     case "usage":
                         return new UsageCommand(Arguments.Skip(1).ToList<string>());
+                    case "copy":
+                        return new CopyCommand(Arguments.Skip(1).ToList<string>());
                     default:
                         Console.Write("Command not found.\n\t");
                         return new UsageCommand(Arguments.Skip(1).ToList<string>());
