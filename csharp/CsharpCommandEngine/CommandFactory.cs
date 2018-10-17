@@ -25,6 +25,8 @@ namespace CsharpCommandEngine
                         return new UsageCommand(Arguments.Skip(1).ToList<string>());
                     case "copy":
                         return new CopyCommand(Arguments.Skip(1).ToList<string>());
+                    case "move":
+                        return new MoveCommand(Arguments.Skip(1).ToList<string>());
                     default:
                         Console.Write("Command not found.\n\t");
                         return new UsageCommand(Arguments.Skip(1).ToList<string>());

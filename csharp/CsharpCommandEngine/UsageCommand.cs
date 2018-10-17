@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using CsharpFileCommands;
 
 namespace CsharpCommandEngine
 {
@@ -29,6 +29,12 @@ namespace CsharpCommandEngine
                         break;
                     case "exit":
                         Console.WriteLine(ExitCommand.UsageString);
+                        break;
+                    case "copy":
+                        Console.WriteLine(CopyCommand.UsageString);
+                        break;
+                    case "move":
+                        Console.WriteLine(MoveCommand.UsageString);
                         break;
                     default:
                         Console.WriteLine("Usage doesn't know this command.");
