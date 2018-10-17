@@ -5,13 +5,13 @@ using CsharpCommandEngine;
 
 namespace CsharpFileCommands
 {
-    public class CopyCommand: AbstractFileCommand
+    public class CopyCommand: AbstractBinaryFileCommand
     {
         public new static readonly string UsageString =
            "copy command copies <file1> to the location specified in <file2>.\n" +
            "Use it the following way:\n" +
            "\t'copy <file1> to <file2>'\n" +
-           "\t" + AbstractFileCommand.UsageString;
+           "\t" + AbstractBinaryFileCommand.UsageString;
 
         public CopyCommand(List<string> args) : base(args)
         {

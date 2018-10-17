@@ -7,14 +7,15 @@ namespace CsharpCommandEngine
     public abstract class AbstractFileCommand : AbstractCommand
     {
         public new static readonly string UsageString =
-            "NOTE: the command takes EXACTLY 4 arguments, EXACTLY in the specified order.";
-        protected bool AllowedToExecute { get; private set; } = false;
+            "placeholder";
+        protected bool AllowedToExecute { get; set; } = false;
 
-        private void PerformPreChecks()
+        public AbstractFileCommand(List<string> args) : base(args)
         {
-            if (Arguments.Count != 3)
+            if (Arguments.Count == 0)
             {
-                Console.WriteLine(UsageString);
+                Console.WriteLine("A file command requires arguments to be executed.\n" +
+                                  "Type 'usage <command>' to get help for the <command> of your choice.");
                 return;
             }
 
@@ -24,18 +25,7 @@ namespace CsharpCommandEngine
                 return;
             }
 
-            if (Arguments[1] != "to")
-            {
-                Console.WriteLine("Please follow the syntax: '<file_command> <file1> to <file2>'.");
-                return;
-            }
-
             AllowedToExecute = true;
-        }
-
-        public AbstractFileCommand(List<string> args) : base(args)
-        {
-            PerformPreChecks();
         }
     }
 }

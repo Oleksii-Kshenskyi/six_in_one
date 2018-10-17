@@ -7,9 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpFileutil", "CsharpFil
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CsharpCommandEngine", "..\CsharpCommandEngine\CsharpCommandEngine.csproj", "{B3C6A5BE-133A-4171-B797-8A5CFCD5872F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpFileCommands", "..\CsharpFileCommands\CsharpFileCommands.csproj", "{2305126F-E3C6-4C01-B42A-D6A7AF9BE176}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CsharpFileCommands", "..\CsharpFileCommands\CsharpFileCommands.csproj", "{2305126F-E3C6-4C01-B42A-D6A7AF9BE176}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbstractCommands", "AbstractCommands\AbstractCommands.csproj", "{D40078EA-751C-45AB-BE4D-8432D69453E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbstractCommands", "AbstractCommands\AbstractCommands.csproj", "{D40078EA-751C-45AB-BE4D-8432D69453E9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
