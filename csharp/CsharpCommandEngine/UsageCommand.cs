@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace CsharpCommandEngine
 {
@@ -21,7 +19,7 @@ namespace CsharpCommandEngine
 
         public override void Execute()
         {
-            if(Arguments.Count == 0)
+            if (Arguments.Count == 0)
                 Console.WriteLine("Available commands: {0}.", GetAvailableCommands());
             else
                 switch (Arguments[0])
@@ -37,24 +35,6 @@ namespace CsharpCommandEngine
                         Console.WriteLine("Available commands: {0}.", GetAvailableCommands());
                         break;
                 }
-        }
-    }
-
-    public class ExitCommand : AbstractCommand
-    {
-        public new static readonly string UsageString = 
-                   "exit command exits the application.\n" +
-                   "Use it the following way:\n" +
-                   "\t'exit' - exits the application.";
-
-        public ExitCommand(List<string> args) : base(args)
-        {
-
-        }
-
-        public override void Execute()
-        {
-            Environment.Exit(0);
         }
     }
 }

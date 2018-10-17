@@ -38,7 +38,6 @@ namespace CsharpFileCommands
                 else
                     Console.WriteLine("An unrecognized copy exception occured.");
             }
-
         }
     }
 }
