@@ -30,7 +30,11 @@ namespace CsharpFileCommands
             catch (Exception e)
             {
                 if (e.Source != null && e.Source != "")
-                    Console.WriteLine("Copy exception: '", e.Source, "'.");
+                {
+                    Console.WriteLine("Copy exception.\nSource: {0};\nError message: {1}", e.Source, e.Message);
+                    if (e.Message.Contains("A required privilege is not held by the client"))
+                        Console.WriteLine("Try running the application as administrator.");
+                }
                 else
                     Console.WriteLine("An unrecognized copy exception occured.");
             }
