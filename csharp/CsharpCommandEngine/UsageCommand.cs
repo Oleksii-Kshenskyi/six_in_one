@@ -39,6 +39,9 @@ namespace CsharpCommandEngine
                     case "rename":
                         Console.WriteLine(RenameCommand.UsageString);
                         break;
+                    case "delete":
+                        Console.WriteLine(DeleteCommand.UsageString);
+                        break;
                     default:
                         Console.WriteLine("Usage doesn't know this command.");
                         Console.WriteLine("Available commands: {0}.", GetAvailableCommands());

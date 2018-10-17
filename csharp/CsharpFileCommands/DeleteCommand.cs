@@ -1,19 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
+using System.Collections.Generic;
 using CsharpCommandEngine;
 
 namespace CsharpFileCommands
 {
-    public class MoveCommand : AbstractBinaryFileCommand
+    public class DeleteCommand: AbstractUnaryFileCommand
     {
         public new static readonly string UsageString =
-           "move command moves <file1> to the location specified in <file2>.\n" +
-           "Use it the following way:\n" +
-           "\t'move <file1> to <file2>'\n" +
-           "\t" + AbstractBinaryFileCommand.UsageString;
+            "delete command deletes <file1>.\n" +
+            "Use it the following way:\n" +
+            "\t'delete <file1>'\n" +
+            "\t" + AbstractUnaryFileCommand.UsageString;
 
-        public MoveCommand(List<string> args) : base(args)
+        public DeleteCommand(List<string> args) : base(args)
         {
 
         }
@@ -25,18 +25,18 @@ namespace CsharpFileCommands
 
             try
             {
-                File.Move(Arguments[0], Arguments[2]);
+                File.Delete(Arguments[0]);
             }
             catch (Exception e)
             {
                 if (e.Source != null && e.Source != "" && e.Message != null && e.Message != "")
                 {
-                    Console.WriteLine("Move exception.\nSource: {0};\nError message: {1}", e.Source, e.Message);
+                    Console.WriteLine("Delete exception.\nSource: {0};\nError message: {1}", e.Source, e.Message);
                     if (e.Message.Contains("A required privilege is not held by the client"))
                         Console.WriteLine("Try running the application as administrator.");
                 }
                 else
-                    Console.WriteLine("An unrecognized move exception has occured.");
+                    Console.WriteLine("An unrecognized delete exception has occured.");
             }
         }
     }

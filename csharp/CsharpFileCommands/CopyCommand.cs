@@ -29,7 +29,7 @@ namespace CsharpFileCommands
             }
             catch (Exception e)
             {
-                if (e.Source != null && e.Source != "")
+                if (e.Source != null && e.Source != "" && e.Message != null && e.Message != "")
                 {
                     Console.WriteLine("Copy exception.\nSource: {0};\nError message: {1}", e.Source, e.Message);
                     if (e.Message.Contains("A required privilege is not held by the client"))

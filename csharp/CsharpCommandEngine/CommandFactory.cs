@@ -29,6 +29,8 @@ namespace CsharpCommandEngine
                         return new MoveCommand(Arguments.Skip(1).ToList<string>());
                     case "rename":
                         return new RenameCommand(Arguments.Skip(1).ToList<string>());
+                    case "delete":
+                        return new DeleteCommand(Arguments.Skip(1).ToList<string>());
                     default:
                         Console.Write("Command not found.\n\t");
                         return new UsageCommand(Arguments.Skip(1).ToList<string>());

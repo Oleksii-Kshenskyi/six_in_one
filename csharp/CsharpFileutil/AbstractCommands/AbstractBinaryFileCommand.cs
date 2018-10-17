@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.IO;
 
 namespace CsharpCommandEngine
 {
@@ -26,6 +26,11 @@ namespace CsharpCommandEngine
             {
                 Console.WriteLine("Please follow the syntax: '<file_command> <file1> to <file2>'.");
                 return;
+            }
+
+            if (Directory.Exists(Arguments[2]))
+            {
+                Arguments[2] = Path.Combine(Arguments[2], Path.GetFileName(Arguments[0]));
             }
 
             AllowedToExecute = true;
