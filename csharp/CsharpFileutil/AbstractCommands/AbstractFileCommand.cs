@@ -8,10 +8,14 @@ namespace CsharpCommandEngine
     {
         public new static readonly string UsageString =
             "placeholder";
-        protected bool AllowedToExecute { get; set; } = false;
 
-        public AbstractFileCommand(List<string> args) : base(args)
+        public AbstractFileCommand(List<string> args, Arity arity) : base(args, arity)
         {
+            if (!AllowedToExecute)
+                return;
+            else
+                AllowedToExecute = false;
+
             if (Arguments.Count == 0)
             {
                 Console.WriteLine("A file command requires arguments to be executed.\n" +

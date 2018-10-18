@@ -11,7 +11,7 @@ namespace CsharpFileCommands
            "move command moves <file1> to the location specified in <file2>.\n" +
            "Use it the following way:\n" +
            "\t'move <file1> to <file2>'\n" +
-           "\t" + AbstractBinaryFileCommand.UsageString;
+           "\t" + BinaryWarning;
 
         public MoveCommand(List<string> args) : base(args)
         {

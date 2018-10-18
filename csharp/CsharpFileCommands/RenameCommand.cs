@@ -11,7 +11,7 @@ namespace CsharpFileCommands
             "rename command renames <file1> to the name specified in <name1>.\n" +
             "Use it the following way:\n" +
             "\t'rename <file1> to <name1>'\n" +
-            "\t" + AbstractBinaryFileCommand.UsageString + "\n" +
+            "\t" + BinaryWarning + "\n" +
             "\tNOTE: For the purpose of moving a file to another folder, please use the 'move' command instead.";
 
         public RenameCommand(List<string> args) : base(args)
@@ -28,7 +28,7 @@ namespace CsharpFileCommands
             {
                 Console.WriteLine("NOTE: For the purpose of moving a file to another folder, please use the 'move' command instead.\n" + 
                                   "Please only use 'rename' to rename your files, not to move them.\n" + 
-                                  "NOTE: The operation hasn't been completed. Please use move instead.");
+                                  "ERROR: The operation hasn't been completed. Please use move instead.");
                 return;
             }
 
