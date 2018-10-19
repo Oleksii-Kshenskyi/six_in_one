@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CsharpCommandEngine", "..\C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CsharpFileCommands", "..\CsharpFileCommands\CsharpFileCommands.csproj", "{2305126F-E3C6-4C01-B42A-D6A7AF9BE176}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbstractCommands", "AbstractCommands\AbstractCommands.csproj", "{D40078EA-751C-45AB-BE4D-8432D69453E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbstractCommands", "..\AbstractCommands\AbstractCommands.csproj", "{D40078EA-751C-45AB-BE4D-8432D69453E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Validators", "..\Validators\Validators.csproj", "{82490F7C-E822-429A-81A8-1F27CE68F920}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{D40078EA-751C-45AB-BE4D-8432D69453E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D40078EA-751C-45AB-BE4D-8432D69453E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D40078EA-751C-45AB-BE4D-8432D69453E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82490F7C-E822-429A-81A8-1F27CE68F920}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82490F7C-E822-429A-81A8-1F27CE68F920}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82490F7C-E822-429A-81A8-1F27CE68F920}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82490F7C-E822-429A-81A8-1F27CE68F920}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

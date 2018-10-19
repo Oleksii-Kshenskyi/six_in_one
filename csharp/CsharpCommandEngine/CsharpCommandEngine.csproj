@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CsharpFileCommands\CsharpFileCommands.csproj" />
-    <ProjectReference Include="..\CsharpFileutil\AbstractCommands\AbstractCommands.csproj" />
+    <ProjectReference Include="..\AbstractCommands\AbstractCommands.csproj" />
   </ItemGroup>
 
 </Project>

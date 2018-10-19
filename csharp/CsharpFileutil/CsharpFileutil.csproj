@@ -54,7 +54,7 @@
       <Project>{b3c6a5be-133a-4171-b797-8a5cfcd5872f}</Project>
       <Name>CsharpCommandEngine</Name>
     </ProjectReference>
-    <ProjectReference Include="AbstractCommands\AbstractCommands.csproj">
+    <ProjectReference Include="..\AbstractCommands\AbstractCommands.csproj">
       <Project>{d40078ea-751c-45ab-be4d-8432d69453e9}</Project>
       <Name>AbstractCommands</Name>
     </ProjectReference>
