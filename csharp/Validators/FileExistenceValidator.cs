@@ -10,12 +10,12 @@ namespace Validators
 
         public FileExistenceValidator(List<string> args, ushort index, string message) : base(args, message)
         {
-            FilePath = args[index];
+            FilePath = (Arguments.Count > index) ? Arguments[index] : null;
         }
 
         public override bool Validate()
         {
-            if (!File.Exists(FilePath))
+            if (FilePath == null || !File.Exists(FilePath))
             {
                 Console.WriteLine(Message);
                 return false;

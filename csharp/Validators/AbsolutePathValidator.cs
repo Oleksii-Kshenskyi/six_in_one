@@ -10,12 +10,12 @@ namespace Validators
 
         public AbsolutePathValidator(List<string> args, ushort index, string message) : base(args, message)
         {
-            Path = args[index];
+            Path = (Arguments.Count > index) ? args[index] : null;
         }
 
         public override bool Validate()
         {
-            if (System.IO.Path.IsPathRooted(Path))
+            if (Path == null || System.IO.Path.IsPathRooted(Path))
             {
                 Console.WriteLine(Message);
                 return false;

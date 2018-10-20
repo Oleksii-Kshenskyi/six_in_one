@@ -17,7 +17,7 @@ namespace Validators
 
         public override bool Validate()
         {
-            if (Arguments[Index] != Value)
+            if (Arguments.Count <= Index || Arguments[Index] != Value)
             {
                 Console.WriteLine(Message);
                 return false;

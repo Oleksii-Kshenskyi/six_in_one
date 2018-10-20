@@ -15,11 +15,13 @@ namespace Validators
 
         public override bool Validate()
         {
-            if (Arguments.Count > Index && Arguments[Index] != null)
-                return true;
+            if (Arguments.Count <= Index || Arguments[Index] == null)
+            {
+                Console.WriteLine(Message);
+                return false;
+            }
 
-            Console.WriteLine(Message);
-            return false;
+            return true;
         }
     }
 }

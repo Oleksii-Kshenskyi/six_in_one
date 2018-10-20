@@ -10,12 +10,12 @@ namespace Validators
 
         public DirectoryExistenceValidator(List<string> args, ushort index, string message) : base(args, message)
         {
-            DirectoryPath = args[index];
+            DirectoryPath = (Arguments.Count > index) ? Arguments[index] : null;
         }
 
         public override bool Validate()
         {
-            if (!Directory.Exists(DirectoryPath))
+            if (DirectoryPath == null || !Directory.Exists(DirectoryPath))
             {
                 Console.WriteLine(Message);
                 return false;
@@ -33,7 +33,7 @@ namespace Validators
 
         public override bool Validate()
         {
-            if (Directory.Exists(DirectoryPath))
+            if (DirectoryPath == null || Directory.Exists(DirectoryPath))
             {
                 Console.WriteLine(Message);
                 return false;
