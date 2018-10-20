@@ -18,7 +18,7 @@ namespace CsharpFileCommands
             "\tNOTE: the command takes EXACTLY 3 arguments, EXACTLY in the specified order!\n" +
             "\tNOTE: For the purpose of moving a file to another folder, please use the 'move' command instead.";
 
-        protected override void SetupValidation()
+        protected new void SetupValidation()
         {
             Validation.AddValidator(new AbsolutePathValidator(Arguments, 2, AbsolutePathMessage));
         }

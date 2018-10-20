@@ -7,7 +7,7 @@ namespace CsharpCommandEngine
     {
         private const string ArgumentCountMismatchMessage = "ERROR: the command takes EXACTLY 1 argument!";
 
-        protected override void SetupValidation()
+        protected new void SetupValidation()
         {
             Validation.AddValidator(new ArgumentCountValidator(Arguments, 1, ArgumentCountMismatchMessage));
         }

@@ -15,7 +15,7 @@ namespace CsharpCommandEngine
 
         protected override void SetupValidation()
         {
-            Validation.AddValidator(new ArgumentCountValidator(Arguments, 0, NoArgumentsMessage));
+            Validation.AddValidator(new ArgumentExistenceValidator(Arguments, 0, NoArgumentsMessage));
             Validation.AddValidator(new DirectoryNonExistenceValidator(Arguments, 0, DirectoryInsteadOfFileMessage));
             Validation.AddValidator(new FileExistenceValidator(Arguments, 0, FileDoesNotExistMessage));
         }

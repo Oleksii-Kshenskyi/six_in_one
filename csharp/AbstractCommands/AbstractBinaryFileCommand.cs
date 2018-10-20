@@ -10,7 +10,7 @@ namespace CsharpCommandEngine
         private const string ArgumentCountMismatchMessage = "ERROR: the command takes EXACTLY 3 arguments, EXACTLY in the specified order!";
         private const string StickToSyntaxMessage = "Please follow the syntax: '<file_command> <file1> to <file2>'.";
 
-        protected override void SetupValidation()
+        protected new void SetupValidation()
         {
             Validation.AddValidator(new ArgumentCountValidator(Arguments, 3, ArgumentCountMismatchMessage));
             Validation.AddValidator(new ArgumentValueValidator(Arguments, 1, "to", StickToSyntaxMessage));
