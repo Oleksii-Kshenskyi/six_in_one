@@ -20,7 +20,7 @@ namespace CsharpFileCommands
 
         public override void Execute()
         {
-            if (!AllowedToExecute)
+            if (!Validation.Validate())
                 return;
 
             try

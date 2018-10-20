@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using Validators;
 
 namespace CsharpCommandEngine
 {
@@ -9,9 +10,18 @@ namespace CsharpCommandEngine
         public new static readonly string UsageString =
             "placeholder";
 
-        public AbstractFileCommand(List<string> args, Arity arity) : base(args, arity)
+        protected override void SetupValidation()
         {
-            if (!AllowedToExecute)
+            Validation.AddValidator(new ArgumentCountValidator(Arguments, 0));
+            Validation.AddValidator(new DirectoryNonExistenceValidator(Arguments, 0));
+            Validation.AddValidator(new FileExistenceValidator(Arguments, 0));
+        }
+
+        public AbstractFileCommand(List<string> args) : base(args)
+        {
+            SetupValidation();
+
+            /*if (!AllowedToExecute)
                 return;
             else
                 AllowedToExecute = false;
@@ -36,7 +46,7 @@ namespace CsharpCommandEngine
                 return;
             }
 
-            AllowedToExecute = true;
+            AllowedToExecute = true;*/
         }
     }
 }

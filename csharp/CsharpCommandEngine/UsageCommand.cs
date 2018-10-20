@@ -12,6 +12,10 @@ namespace CsharpCommandEngine
                    "\t'usage' - displays the list of available commands.\n" +
                    "\t'usage <command>' - displays the description and way to use for <command>.";
 
+        protected override void SetupValidation()
+        {
+        }
+
         public UsageCommand(List<string> args) : base(args)
         {
 

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
-using CsharpCommandEngine;
+using Validators;
 
 namespace CsharpFileCommands
 {
@@ -14,23 +14,28 @@ namespace CsharpFileCommands
             "\t" + BinaryWarning + "\n" +
             "\tNOTE: For the purpose of moving a file to another folder, please use the 'move' command instead.";
 
+        protected override void SetupValidation()
+        {
+            Validation.AddValidator(new AbsolutePathValidator(Arguments, 2));
+        }
+
         public RenameCommand(List<string> args) : base(args)
         {
-
+            SetupValidation();
         }
 
         public override void Execute()
         {
-            if (!AllowedToExecute)
+            if (!Validation.Validate())
                 return;
 
-            if (Path.IsPathRooted(Arguments[2]))
+            /*if (Path.IsPathRooted(Arguments[2]))
             {
                 Console.WriteLine("NOTE: For the purpose of moving a file to another folder, please use the 'move' command instead.\n" + 
                                   "Please only use 'rename' to rename your files, not to move them.\n" + 
                                   "ERROR: The operation hasn't been completed. Please use move instead.");
                 return;
-            }
+            }*/
 
             Arguments[2] = Path.Combine(Path.GetDirectoryName(Arguments[0]), Arguments[2]);
 

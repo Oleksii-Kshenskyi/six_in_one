@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Validators
 {
-    class ArgumentValueValidator: AbstractValidator
+    public class ArgumentValueValidator: AbstractValidator
     {
         protected new static readonly string ValidationFailureMessage = "NOTE: the value of argument {0} should be {1}!";
         private ushort Index { get; set; }

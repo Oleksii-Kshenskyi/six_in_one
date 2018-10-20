@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Validators
 {
-    class ValidationStack
+    public class ValidationStack
     {
         private Stack<AbstractValidator> ValidatorStack { get; set; }
 

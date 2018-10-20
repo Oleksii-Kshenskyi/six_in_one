@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Validators
 {
-    class ArgumentCountValidator: AbstractValidator
+    public class ArgumentCountValidator: AbstractValidator
     {
         protected new static readonly string ValidationFailureMessage = "NOTE: the command takes EXACTLY {0} argument(s), EXACTLY in the specified order!";
         private ushort Count { get; set; }

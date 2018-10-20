@@ -4,7 +4,7 @@ using System.IO;
 
 namespace Validators
 {
-    class AbsolutePathValidator: AbstractValidator
+    public class AbsolutePathValidator: AbstractValidator
     {
         protected new static readonly string ValidationFailureMessage = "NOTE: path {0} is absolute [should be relative]!";
         private string Path { get; set; }

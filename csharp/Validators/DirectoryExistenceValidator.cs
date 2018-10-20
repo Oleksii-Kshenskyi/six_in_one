@@ -4,7 +4,7 @@ using System.IO;
 
 namespace Validators
 {
-    class DirectoryExistenceValidator: AbstractValidator
+    public class DirectoryExistenceValidator: AbstractValidator
     {
         protected new static readonly string ValidationFailureMessage = "NOTE: directory {0} does not exist!";
         private string DirectoryPath { get; set; }
@@ -23,6 +23,19 @@ namespace Validators
             }
 
             return true;
+        }
+    }
+
+    public class DirectoryNonExistenceValidator : DirectoryExistenceValidator
+    {
+        protected new static readonly string ValidationFailureMessage = "NOTE: directory {0} exists!";
+        public DirectoryNonExistenceValidator(List<string> args, ushort index) : base(args, index)
+        {
+        }
+
+        public override bool Validate()
+        {
+            return !base.Validate();
         }
     }
 }

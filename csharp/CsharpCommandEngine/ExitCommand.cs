@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using Validators;
 
 namespace CsharpCommandEngine
 {
@@ -11,13 +11,21 @@ namespace CsharpCommandEngine
                    "Use it the following way:\n" +
                    "\t'exit' - exits the application.";
 
+        protected override void SetupValidation()
+        {
+            Validation.AddValidator(new ArgumentCountValidator(Arguments, 1));
+        }
+
         public ExitCommand(List<string> args) : base(args)
         {
-
+            SetupValidation();
         }
 
         public override void Execute()
         {
+            if (!Validation.Validate())
+                return;
+
             Environment.Exit(0);
         }
     }
