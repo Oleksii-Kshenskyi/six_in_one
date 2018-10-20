@@ -6,10 +6,9 @@ namespace Validators
 {
     public class FileExistenceValidator: AbstractValidator
     {
-        protected new static readonly string ValidationFailureMessage = "NOTE: file {0} does not exist!";
         private string FilePath { get; set; }
 
-        public FileExistenceValidator(List<string> args, ushort index) : base(args)
+        public FileExistenceValidator(List<string> args, ushort index, string message) : base(args, message)
         {
             FilePath = args[index];
         }
@@ -18,7 +17,7 @@ namespace Validators
         {
             if (!File.Exists(FilePath))
             {
-                Console.WriteLine(string.Format(ValidationFailureMessage, FilePath));
+                Console.WriteLine(Message);
                 return false;
             }
 

@@ -11,7 +11,7 @@ namespace CsharpFileCommands
             "delete command deletes <file1>.\n" +
             "Use it the following way:\n" +
             "\t'delete <file1>'\n" +
-            "\t" + UnaryWarning;
+            "\tNOTE: the command takes EXACTLY 1 argument!";
 
         public DeleteCommand(List<string> args) : base(args)
         {

@@ -6,10 +6,9 @@ namespace Validators
 {
     public class DirectoryExistenceValidator: AbstractValidator
     {
-        protected new static readonly string ValidationFailureMessage = "NOTE: directory {0} does not exist!";
         private string DirectoryPath { get; set; }
 
-        public DirectoryExistenceValidator(List<string> args, ushort index) : base(args)
+        public DirectoryExistenceValidator(List<string> args, ushort index, string message) : base(args, message)
         {
             DirectoryPath = args[index];
         }
@@ -18,7 +17,7 @@ namespace Validators
         {
             if (!Directory.Exists(DirectoryPath))
             {
-                Console.WriteLine(string.Format(ValidationFailureMessage, DirectoryPath));
+                Console.WriteLine(Message);
                 return false;
             }
 
@@ -29,7 +28,7 @@ namespace Validators
     public class DirectoryNonExistenceValidator : DirectoryExistenceValidator
     {
         protected new static readonly string ValidationFailureMessage = "NOTE: directory {0} exists!";
-        public DirectoryNonExistenceValidator(List<string> args, ushort index) : base(args, index)
+        public DirectoryNonExistenceValidator(List<string> args, ushort index, string message) : base(args, index, message)
         {
         }
 

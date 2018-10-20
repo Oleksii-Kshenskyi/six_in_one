@@ -6,11 +6,10 @@ namespace Validators
 {
     public class ArgumentValueValidator: AbstractValidator
     {
-        protected new static readonly string ValidationFailureMessage = "NOTE: the value of argument {0} should be {1}!";
         private ushort Index { get; set; }
         private string Value { get; set; }
 
-        public ArgumentValueValidator(List<string> args, ushort index, string value) : base(args)
+        public ArgumentValueValidator(List<string> args, ushort index, string value, string message) : base(args, message)
         {
             Index = index;
             Value = value;
@@ -20,7 +19,7 @@ namespace Validators
         {
             if (Arguments[Index] != Value)
             {
-                Console.WriteLine(string.Format(ValidationFailureMessage, Index, Value));
+                Console.WriteLine(Message);
                 return false;
             }
 

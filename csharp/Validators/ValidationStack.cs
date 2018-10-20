@@ -6,14 +6,14 @@ namespace Validators
 {
     public class ValidationStack
     {
-        private Stack<AbstractValidator> ValidatorStack { get; set; }
+        private List<AbstractValidator> ValidatorStack { get; set; }
 
         public ValidationStack()
         {
-            ValidatorStack = new Stack<AbstractValidator>();
+            ValidatorStack = new List<AbstractValidator>();
         }
 
-        public ValidationStack(Stack<AbstractValidator> newValidators)
+        public ValidationStack(List<AbstractValidator> newValidators)
         {
             ValidatorStack = newValidators;
         }
@@ -21,16 +21,16 @@ namespace Validators
         public void AddValidator(AbstractValidator newValidator)
         {
             if (newValidator != null)
-                ValidatorStack.Push(newValidator);
+                ValidatorStack.Add(newValidator);
         }
 
         public bool Validate()
         {
             var TempStack = ValidatorStack;
 
-            while (TempStack.Count != 0)
+            foreach(var validator in TempStack)
             {
-                if (!TempStack.Pop().Validate())
+                if (!validator.Validate())
                     return false;
             }
 

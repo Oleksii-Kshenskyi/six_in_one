@@ -14,9 +14,6 @@ namespace CsharpCommandEngine
         public static readonly string UsageString = "placeholder";
         protected ValidationStack Validation {get; set;}
 
-        protected const string UnaryWarning = "NOTE: the command takes EXACTLY 1 argument!";
-        protected const string BinaryWarning = "NOTE: the command takes EXACTLY 3 arguments, EXACTLY in the specified order!";
-
         public AbstractCommand(List<string> args)
         {
             Arguments = args;

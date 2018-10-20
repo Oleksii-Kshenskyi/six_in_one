@@ -11,7 +11,7 @@ namespace CsharpFileCommands
            "copy command copies <file1> to the location specified in <file2>.\n" +
            "Use it the following way:\n" +
            "\t'copy <file1> to <file2>'\n" +
-           "\t" + BinaryWarning;
+           "\tNOTE: the command takes EXACTLY 3 arguments, EXACTLY in the specified order!";
 
         public CopyCommand(List<string> args) : base(args)
         {

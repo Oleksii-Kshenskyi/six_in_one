@@ -6,10 +6,9 @@ namespace Validators
 {
     public class AbsolutePathValidator: AbstractValidator
     {
-        protected new static readonly string ValidationFailureMessage = "NOTE: path {0} is absolute [should be relative]!";
         private string Path { get; set; }
 
-        public AbsolutePathValidator(List<string> args, ushort index) : base(args)
+        public AbsolutePathValidator(List<string> args, ushort index, string message) : base(args, message)
         {
             Path = args[index];
         }
@@ -18,7 +17,7 @@ namespace Validators
         {
             if (System.IO.Path.IsPathRooted(Path))
             {
-                Console.WriteLine(string.Format(ValidationFailureMessage, Path));
+                Console.WriteLine(Message);
                 return false;
             }
 

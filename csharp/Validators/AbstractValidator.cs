@@ -6,11 +6,12 @@ namespace Validators
     public abstract class AbstractValidator
     {
         protected List<string> Arguments { get; set; }
-        protected static readonly string ValidationFailureMessage = "placeholder";
+        public string Message { get; protected set; }
 
-        public AbstractValidator(List<string> args)
+        public AbstractValidator(List<string> args, string message)
         {
             Arguments = args;
+            Message = message;
         }
 
         public abstract bool Validate();

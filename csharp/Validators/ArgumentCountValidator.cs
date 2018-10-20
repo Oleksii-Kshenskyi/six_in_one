@@ -6,10 +6,9 @@ namespace Validators
 {
     public class ArgumentCountValidator: AbstractValidator
     {
-        protected new static readonly string ValidationFailureMessage = "NOTE: the command takes EXACTLY {0} argument(s), EXACTLY in the specified order!";
         private ushort Count { get; set; }
 
-        public ArgumentCountValidator(List<string> args, ushort count) : base(args)
+        public ArgumentCountValidator(List<string> args, ushort count, string message) : base(args, message)
         {
             Count = count;
         }
@@ -18,7 +17,7 @@ namespace Validators
         {
             if (Arguments.Count != Count)
             {
-                Console.WriteLine(string.Format(ValidationFailureMessage, Count));
+                Console.WriteLine(Message);
                 return false;
             }
 
