@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CsharpFileCommands", "..\Cs
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbstractCommands", "..\AbstractCommands\AbstractCommands.csproj", "{D40078EA-751C-45AB-BE4D-8432D69453E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Validators", "..\Validators\Validators.csproj", "{82490F7C-E822-429A-81A8-1F27CE68F920}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Validators", "..\Validators\Validators.csproj", "{82490F7C-E822-429A-81A8-1F27CE68F920}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

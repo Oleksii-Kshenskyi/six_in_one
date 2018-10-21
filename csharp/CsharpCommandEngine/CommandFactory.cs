@@ -20,20 +20,22 @@ namespace CsharpCommandEngine
                 switch (Arguments[0])
                 {
                     case "exit":
-                        return new ExitCommand(Arguments.Skip(1).ToList<string>());
+                        return new ExitCommand(Arguments.Skip(1).ToList());
                     case "usage":
-                        return new UsageCommand(Arguments.Skip(1).ToList<string>());
+                        return new UsageCommand(Arguments.Skip(1).ToList());
                     case "copy":
-                        return new CopyCommand(Arguments.Skip(1).ToList<string>());
+                        return new CopyCommand(Arguments.Skip(1).ToList());
                     case "move":
-                        return new MoveCommand(Arguments.Skip(1).ToList<string>());
+                        return new MoveCommand(Arguments.Skip(1).ToList());
                     case "rename":
-                        return new RenameCommand(Arguments.Skip(1).ToList<string>());
+                        return new RenameCommand(Arguments.Skip(1).ToList());
                     case "delete":
-                        return new DeleteCommand(Arguments.Skip(1).ToList<string>());
+                        return new DeleteCommand(Arguments.Skip(1).ToList());
+                    case "list":
+                        return new ListDirectoryCommand(Arguments.Skip(1).ToList());
                     default:
                         Console.Write("Command not found.\n\t");
-                        return new UsageCommand(Arguments.Skip(1).ToList<string>());
+                        return new UsageCommand(Arguments.Skip(1).ToList());
                 }
             else
                 return new UsageCommand(new List<string>());

@@ -10,7 +10,7 @@ namespace CsharpCommandEngine
     {
         protected List<string> Arguments { get; private set; }
         private static readonly IList<String> AvailableCommands =
-                                       new ReadOnlyCollection<string>(new List<string> { "usage", "exit", "copy", "move", "rename", "delete" });
+                                       new ReadOnlyCollection<string>(new List<string> { "usage", "exit", "copy", "move", "rename", "delete", "list" });
         public static readonly string UsageString = "placeholder";
         protected ValidationStack Validation {get; set;}
 

@@ -46,6 +46,9 @@ namespace CsharpCommandEngine
                     case "delete":
                         Console.WriteLine(DeleteCommand.UsageString);
                         break;
+                    case "list":
+                        Console.WriteLine(ListDirectoryCommand.UsageString);
+                        break;
                     default:
                         Console.WriteLine("Usage doesn't know this command.");
                         Console.WriteLine("Available commands: {0}.", GetAvailableCommands());
