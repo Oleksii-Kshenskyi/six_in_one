@@ -3,6 +3,7 @@ package JavaFileutil.App;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.List;
 import JavaFileutil.JavaCommandEngine.CommandFactory;
 
 public class CommandInterpreter
@@ -14,7 +15,7 @@ public class CommandInterpreter
             System.out.print("===> ");
             Scanner scanner = new Scanner(System.in);
             String choice = scanner.nextLine();
-            ArrayList<String> arguments = new ArrayList<>(Arrays.asList(choice.split(" ")));
+            List<String> arguments = new ArrayList<>(Arrays.asList(choice.split(" ")));
             new CommandFactory(arguments).Create().Execute();
         }
     }

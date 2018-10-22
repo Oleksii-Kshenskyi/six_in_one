@@ -1,7 +1,7 @@
 package JavaFileutil.JavaCommandEngine;
 
 import JavaFileutil.AbstractCommands.AbstractCommand;
-import java.util.ArrayList;
+import java.util.List;
 
 public class ExitCommand extends AbstractCommand
 {
@@ -16,10 +16,9 @@ public class ExitCommand extends AbstractCommand
         //Validation.AddValidator(new ArgumentCountValidator(Arguments, 0, NoArgumentsNeededMessage));
     }
 
-    public ExitCommand(ArrayList<String> args)
+    public ExitCommand(List<String> args)
     {
         super(args);
-
     }
 
     @Override

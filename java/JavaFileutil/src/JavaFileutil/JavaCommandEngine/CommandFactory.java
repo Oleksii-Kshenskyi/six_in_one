@@ -1,13 +1,14 @@
 package JavaFileutil.JavaCommandEngine;
 
+import java.util.List;
 import java.util.ArrayList;
 import JavaFileutil.AbstractCommands.AbstractCommand;
 
 public class CommandFactory
 {
-    private ArrayList<String> Arguments;
+    private List<String> Arguments;
 
-    public CommandFactory(ArrayList<String> args)
+    public CommandFactory(List<String> args)
     {
         Arguments = args;
     }
@@ -19,12 +20,12 @@ public class CommandFactory
             switch (Arguments.get(0))
             {
                 case "exit":
-                    return new ExitCommand(new ArrayList(Arguments.subList(1, Arguments.size())));
+                    return new ExitCommand(Arguments.subList(1, Arguments.size()));
                 case "usage":
-                    return new UsageCommand(new ArrayList(Arguments.subList(1, Arguments.size())));
+                    return new UsageCommand(Arguments.subList(1, Arguments.size()));
                 default:
                     System.out.print("Command not found.\n\t");
-                    return new UsageCommand(new ArrayList(Arguments.subList(1, Arguments.size())));
+                    return new UsageCommand(Arguments.subList(1, Arguments.size()));
             }
         }
         else

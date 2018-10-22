@@ -1,7 +1,7 @@
 package JavaFileutil.JavaCommandEngine;
 
 import JavaFileutil.AbstractCommands.AbstractCommand;
-import java.util.ArrayList;
+import java.util.List;
 
 public class UsageCommand extends AbstractCommand
 {
@@ -15,7 +15,7 @@ public class UsageCommand extends AbstractCommand
     {
     }
 
-    public UsageCommand(ArrayList<String> args)
+    public UsageCommand(List<String> args)
     {
         super(args);
     }

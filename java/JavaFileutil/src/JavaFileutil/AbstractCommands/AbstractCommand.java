@@ -5,11 +5,11 @@ import java.util.List;
 
 public abstract class AbstractCommand
 {
-    protected ArrayList<String> Arguments;
+    protected List<String> Arguments;
     private static final String[] AvailableCommands = { "usage", "exit" };
     public static final String UsageString = "placeholder";
 
-    public AbstractCommand(ArrayList<String> args)
+    public AbstractCommand(List<String> args)
     {
         Arguments = args;
     }
