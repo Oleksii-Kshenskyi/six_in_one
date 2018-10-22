@@ -14,7 +14,8 @@ public class CommandFactory
 
     public AbstractCommand Create()
     {
-        if (Arguments.size() > 0)
+        if (Arguments.size() > 0 && !Arguments.get(0).isEmpty())
+        {
             switch (Arguments.get(0))
             {
                 case "exit":
@@ -25,6 +26,7 @@ public class CommandFactory
                     System.out.print("Command not found.\n\t");
                     return new UsageCommand(new ArrayList(Arguments.subList(1, Arguments.size())));
             }
+        }
         else
             return new UsageCommand(new ArrayList());
     }
