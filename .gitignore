@@ -35,3 +35,5 @@
 .vs
 obj
 bin
+.idea
+out
