@@ -1,7 +1,9 @@
+package JavaFileutil.App;
+
 public class Program
 {
     public static void main(String[] args)
     {
-        System.out.println("Hello Java Fileutil!");
+        new CommandInterpreter().run();
     }
 }
