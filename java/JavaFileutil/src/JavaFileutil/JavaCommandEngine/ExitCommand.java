@@ -7,7 +7,7 @@ import java.util.List;
 
 public class ExitCommand extends AbstractCommand
 {
-    private final String NoArgumentsNeededMessage = "ERROR: the exit command does not require any arguments.";
+    private final String NoArgumentsNeededMessage = "the exit command does not require any arguments.";
     public static final String UsageString = "exit command exits the application.\n" +
                                              "Use it the following way:\n" +
                                              "\t'exit' - exits the application.";

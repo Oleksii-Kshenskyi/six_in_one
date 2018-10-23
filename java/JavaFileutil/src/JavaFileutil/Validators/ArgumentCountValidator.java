@@ -4,7 +4,7 @@ import java.util.List;
 
 public class ArgumentCountValidator extends AbstractValidator
 {
-    private short Count;
+    protected short Count;
 
     public ArgumentCountValidator(List<String> args, short count, String message)
     {
@@ -17,7 +17,7 @@ public class ArgumentCountValidator extends AbstractValidator
     {
         if (Arguments.size() != Count)
         {
-            System.out.println(Message);
+            System.out.println(ErrorPreface + Message);
             return false;
         }
 
