@@ -1,6 +1,7 @@
 package JavaFileutil.JavaCommandEngine;
 
 import JavaFileutil.AbstractCommands.AbstractCommand;
+import JavaFileutil.JavaFileCommands.CopyCommand;
 import JavaFileutil.Validators.ArgumentLimitValidator;
 
 import java.util.List;
@@ -42,6 +43,9 @@ public class UsageCommand extends AbstractCommand
                     break;
                 case "exit":
                     System.out.println(ExitCommand.UsageString);
+                    break;
+                case "copy":
+                    System.out.println(CopyCommand.UsageString);
                     break;
                 default:
                     System.out.println("Usage doesn't know this command.");

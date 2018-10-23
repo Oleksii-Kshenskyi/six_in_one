@@ -3,6 +3,7 @@ package JavaFileutil.JavaCommandEngine;
 import java.util.List;
 import java.util.ArrayList;
 import JavaFileutil.AbstractCommands.AbstractCommand;
+import JavaFileutil.JavaFileCommands.CopyCommand;
 
 public class CommandFactory
 {
@@ -23,6 +24,8 @@ public class CommandFactory
                     return new ExitCommand(Arguments.subList(1, Arguments.size()));
                 case "usage":
                     return new UsageCommand(Arguments.subList(1, Arguments.size()));
+                case "copy":
+                    return new CopyCommand(Arguments.subList(1, Arguments.size()));
                 default:
                     System.out.print("Command not found.\n\t");
                     return new UsageCommand(Arguments.subList(1, Arguments.size()));
