@@ -17,7 +17,7 @@ public class ArgumentValueValidator extends AbstractValidator
     @Override
     public boolean Validate()
     {
-        if(Arguments.size() <= Index || Arguments.get(Index) != Value)
+        if(Arguments.size() <= Index || !Arguments.get(Index).equals(Value))
         {
             System.out.println(ErrorPreface + Message);
             return false;

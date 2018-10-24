@@ -17,6 +17,7 @@ public class CopyCommand extends AbstractBinaryFileCommand
     public CopyCommand(List<String> args)
     {
         super(args);
+        SetupValidation();
     }
 
     @Override

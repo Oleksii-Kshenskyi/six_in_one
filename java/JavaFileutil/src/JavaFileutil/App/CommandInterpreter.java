@@ -28,7 +28,7 @@ public class CommandInterpreter
     {
         System.out.println("Welcome to the file utility command interpreter!");
         System.out.println("Author: Oleksii <DarkSpectre> Kshenskyi.");
-        new CommandFactory(new ArrayList<String>(Arrays.asList("usage"))).Create().Execute();
+        new CommandFactory(new ArrayList<>(Arrays.asList("usage"))).Create().Execute();
         System.out.println("Type 'usage <command>' to learn about the <command> you're interested in.");
         runEventLoop();
     }

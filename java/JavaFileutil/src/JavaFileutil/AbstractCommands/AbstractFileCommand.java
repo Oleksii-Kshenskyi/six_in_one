@@ -26,6 +26,5 @@ public abstract class AbstractFileCommand extends AbstractCommand
     public AbstractFileCommand(List<String> args)
     {
         super(args);
-        SetupValidation();
     }
 }

@@ -15,8 +15,11 @@ public abstract class AbstractBinaryFileCommand extends AbstractFileCommand
     protected File Source;
     protected File Destination;
 
+    @Override
     protected void SetupValidation()
     {
+        super.SetupValidation();
+
         Validation.AddValidator(new ArgumentCountValidator(Arguments, (short)3, ArgumentCountMismatchMessage));
         Validation.AddValidator(new ArgumentValueValidator(Arguments, (short)1, "to", StickToSyntaxMessage));
     }
@@ -24,7 +27,7 @@ public abstract class AbstractBinaryFileCommand extends AbstractFileCommand
     public AbstractBinaryFileCommand(List<String> args)
     {
         super(args);
-        SetupValidation();
+
         Source = (Arguments.size() >= 1 && !Arguments.get(2).isEmpty())? new File(Arguments.get(0)) : null;
         Destination = (Arguments.size() >= 3 && !Arguments.get(2).isEmpty()) ? new File(Arguments.get(2)) : null;
 
