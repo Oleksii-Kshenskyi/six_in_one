@@ -9,7 +9,6 @@ public abstract class AbstractCommand
     protected ValidationStack Validation;
     protected static final String NotePreface = "NOTE: ";
     private static final String[] AvailableCommands = { "usage", "exit", "copy" };
-    public static final String UsageString = "placeholder";
 
     public AbstractCommand(List<String> args)
     {
@@ -23,5 +22,4 @@ public abstract class AbstractCommand
     }
 
     public abstract void Execute();
-    protected abstract void SetupValidation();
 }

@@ -3,7 +3,6 @@ package JavaFileutil.AbstractCommands;
 import JavaFileutil.Validators.ArgumentExistenceValidator;
 import JavaFileutil.Validators.DirectoryNonExistenceValidator;
 import JavaFileutil.Validators.FileExistenceValidator;
-import java.io.File;
 
 import java.util.List;
 
@@ -15,8 +14,7 @@ public abstract class AbstractFileCommand extends AbstractCommand
                                                          "Please use the command for files instead of directories.";
     private final String FileDoesNotExistMessage = "The source file does not exist.";
 
-    @Override
-    protected void SetupValidation()
+    private final void SetupValidation()
     {
         Validation.AddValidator(new ArgumentExistenceValidator(Arguments, (short)0, NoArgumentsMessage));
         Validation.AddValidator(new DirectoryNonExistenceValidator(Arguments, (short)0, DirectoryInsteadOfFileMessage));
@@ -26,5 +24,6 @@ public abstract class AbstractFileCommand extends AbstractCommand
     public AbstractFileCommand(List<String> args)
     {
         super(args);
+        SetupValidation();
     }
 }

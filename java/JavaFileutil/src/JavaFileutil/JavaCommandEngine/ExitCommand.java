@@ -12,8 +12,7 @@ public class ExitCommand extends AbstractCommand
                                              "Use it the following way:\n" +
                                              "\t'exit' - exits the application.";
 
-    @Override
-    protected void SetupValidation()
+    private final void SetupValidation()
     {
         Validation.AddValidator(new ArgumentCountValidator(Arguments, (short)0, NoArgumentsNeededMessage));
     }

@@ -15,8 +15,7 @@ public class UsageCommand extends AbstractCommand
                                              "\t'usage <command>' - displays the description and way to use for <command>.\n" +
                                              "\t" + NotePreface + ArgumentLimitMessage;
 
-    @Override
-    protected void SetupValidation()
+    private final void SetupValidation()
     {
         Validation.AddValidator(new ArgumentLimitValidator(Arguments, (short)2, ArgumentLimitMessage));
     }
