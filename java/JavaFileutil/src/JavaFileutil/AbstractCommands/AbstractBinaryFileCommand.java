@@ -26,7 +26,7 @@ public abstract class AbstractBinaryFileCommand extends AbstractFileCommand
         super(args);
         SetupValidation();
 
-        Source = (Arguments.size() >= 1 && !Arguments.get(2).isEmpty())? new File(Arguments.get(0)) : null;
+        Source = (Arguments.size() >= 1 && !Arguments.get(0).isEmpty())? new File(Arguments.get(0)) : null;
         Destination = (Arguments.size() >= 3 && !Arguments.get(2).isEmpty()) ? new File(Arguments.get(2)) : null;
 
         if (Destination != null && Destination.exists() && Destination.isDirectory())
