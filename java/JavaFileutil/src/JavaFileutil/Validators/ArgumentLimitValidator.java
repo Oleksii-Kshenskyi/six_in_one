@@ -14,7 +14,7 @@ public class ArgumentLimitValidator extends ArgumentCountValidator
     {
         if(Arguments.size() >= Count)
         {
-            System.out.format(ErrorPreface + Message + "\n", Count);
+            System.out.format(ErrorPreface + Message + "\n");
             return false;
         }
 

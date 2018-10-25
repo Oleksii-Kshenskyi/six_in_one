@@ -8,7 +8,7 @@ import java.util.List;
 
 public class UsageCommand extends AbstractCommand
 {
-    private static final String ArgumentLimitMessage = "The command takes strictly less than %d arguments.";
+    private static final String ArgumentLimitMessage = "The command takes strictly less than 2 arguments.";
     public static final String UsageString = "usage command displays available commands or the way to use the command in its argument.\n" +
                                              "Use it the following way:\n" +
                                              "\t'usage' - displays the list of available commands.\n" +
