@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.ArrayList;
 import JavaFileutil.AbstractCommands.AbstractCommand;
 import JavaFileutil.JavaFileCommands.CopyCommand;
+import JavaFileutil.JavaFileCommands.MoveCommand;
 
 public class CommandFactory
 {
@@ -26,6 +27,8 @@ public class CommandFactory
                     return new UsageCommand(Arguments.subList(1, Arguments.size()));
                 case "copy":
                     return new CopyCommand(Arguments.subList(1, Arguments.size()));
+                case "move":
+                    return new MoveCommand(Arguments.subList(1, Arguments.size()));
                 default:
                     System.out.print("Command not found.\n\t");
                     return new UsageCommand(Arguments.subList(1, Arguments.size()));

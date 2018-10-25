@@ -8,7 +8,7 @@ public abstract class AbstractCommand
     protected List<String> Arguments;
     protected ValidationStack Validation;
     protected static final String NotePreface = "NOTE: ";
-    private static final String[] AvailableCommands = { "usage", "exit", "copy" };
+    private static final String[] AvailableCommands = { "usage", "exit", "copy", "move" };
 
     public AbstractCommand(List<String> args)
     {

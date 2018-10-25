@@ -7,12 +7,11 @@ import java.util.List;
 
 public class CopyCommand extends AbstractBinaryFileCommand
 {
-    private static final String ArgumentLimitMessage = "the command takes EXACTLY 3 arguments, EXACTLY in the specified order!";
-    public static final String UsageString = "usage command displays available commands or the way to use the command in its argument.\n" +
+    public static final String UsageString =
+            "copy command copies <file1> to the location specified in <file2>.\n" +
             "Use it the following way:\n" +
-            "\t'usage' - displays the list of available commands.\n" +
-            "\t'usage <command>' - displays the description and way to use for <command>.\n" +
-            "\t" + NotePreface + ArgumentLimitMessage;
+            "\t'copy <file1> to <file2>'\n" +
+            "\t" + NotePreface + ArgumentCountMismatchMessage;
 
     public CopyCommand(List<String> args)
     {

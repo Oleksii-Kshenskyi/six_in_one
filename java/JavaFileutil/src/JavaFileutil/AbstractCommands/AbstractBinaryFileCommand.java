@@ -9,8 +9,8 @@ import java.nio.file.Paths;
 
 public abstract class AbstractBinaryFileCommand extends AbstractFileCommand
 {
-    private final String ArgumentCountMismatchMessage = "the command takes EXACTLY 3 arguments, EXACTLY in the specified order!";
-    private final String StickToSyntaxMessage = "Please follow the syntax: '<file_command> <file1> to <file2>'.";
+    protected static final String ArgumentCountMismatchMessage = "the command takes EXACTLY 3 arguments, EXACTLY in the specified order!";
+    private static final String StickToSyntaxMessage = "Please follow the syntax: '<file_command> <file1> to <file2>'.";
 
     protected File Source;
     protected File Destination;
