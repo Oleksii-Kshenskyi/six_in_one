@@ -15,7 +15,8 @@ public class CommandInterpreter
             System.out.print("===> ");
             Scanner scanner = new Scanner(System.in);
             String choice = scanner.nextLine();
-            List<String> arguments = new ArrayList<>(Arrays.asList(choice.split(" ")));
+            List<String> arguments = new ArrayList<>(Arrays.asList(choice.split("\\s+")));
+            arguments.remove("");
             new CommandFactory(arguments).Create().Execute();
         }
     }
