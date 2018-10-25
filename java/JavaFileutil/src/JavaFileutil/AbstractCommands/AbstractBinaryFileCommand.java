@@ -30,6 +30,6 @@ public abstract class AbstractBinaryFileCommand extends AbstractFileCommand
         Destination = (Arguments.size() >= 3 && !Arguments.get(2).isEmpty()) ? new File(Arguments.get(2)) : null;
 
         if (Destination != null && Destination.exists() && Destination.isDirectory())
-            Destination = new File(Paths.get(Destination.getAbsolutePath(), Source.getPath()).toString());
+            Destination = new File(Paths.get(Destination.getAbsolutePath(), Source.getName()).toString());
     }
 }
