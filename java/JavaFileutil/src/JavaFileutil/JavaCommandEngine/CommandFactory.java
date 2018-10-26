@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.ArrayList;
 import JavaFileutil.AbstractCommands.AbstractCommand;
 import JavaFileutil.JavaFileCommands.CopyCommand;
+import JavaFileutil.JavaFileCommands.DeleteCommand;
 import JavaFileutil.JavaFileCommands.MoveCommand;
 import JavaFileutil.JavaFileCommands.RenameCommand;
 
@@ -32,6 +33,8 @@ public class CommandFactory
                     return new MoveCommand(Arguments.subList(1, Arguments.size()));
                 case "rename":
                     return new RenameCommand(Arguments.subList(1, Arguments.size()));
+                case "delete":
+                    return new DeleteCommand(Arguments.subList(1, Arguments.size()));
                 default:
                     System.out.print("Command not found.\n\t");
                     return new UsageCommand(Arguments.subList(1, Arguments.size()));

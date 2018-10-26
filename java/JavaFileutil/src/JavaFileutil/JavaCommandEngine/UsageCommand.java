@@ -2,6 +2,7 @@ package JavaFileutil.JavaCommandEngine;
 
 import JavaFileutil.AbstractCommands.AbstractCommand;
 import JavaFileutil.JavaFileCommands.CopyCommand;
+import JavaFileutil.JavaFileCommands.DeleteCommand;
 import JavaFileutil.JavaFileCommands.MoveCommand;
 import JavaFileutil.JavaFileCommands.RenameCommand;
 import JavaFileutil.Validators.ArgumentLimitValidator;
@@ -53,6 +54,9 @@ public class UsageCommand extends AbstractCommand
                     break;
                 case "rename":
                     System.out.println(RenameCommand.UsageString);
+                    break;
+                case "delete":
+                    System.out.println(DeleteCommand.UsageString);
                     break;
                 default:
                     System.out.println("Usage doesn't know this command.");
