@@ -1,5 +1,6 @@
 package JavaFileutil.AbstractCommands;
 
+import java.util.ArrayList;
 import java.util.List;
 import JavaFileutil.Validators.ValidationStack;
 
@@ -12,7 +13,7 @@ public abstract class AbstractCommand
 
     public AbstractCommand(List<String> args)
     {
-        Arguments = args;
+        Arguments = (args.size() >= 1) ? args.subList(1, args.size()) : new ArrayList<>();
         Validation = new ValidationStack();
     }
 

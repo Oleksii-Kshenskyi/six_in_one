@@ -1,7 +1,7 @@
 # six_in_one
 Basic idea of this repo is to get one app done in six languages: C++, C#, Python, Java, Ruby, JavaScript.
 
-Current status: C# implemented, Java version in progress.
+Current status: C#, Java implemented, Python version in progress.
 
 This is the same command interpreter application written in six languages that includes:
 + File move operation;

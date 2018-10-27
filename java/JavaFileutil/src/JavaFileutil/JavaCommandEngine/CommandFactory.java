@@ -21,22 +21,22 @@ public class CommandFactory
             switch (Arguments.get(0))
             {
                 case "exit":
-                    return new ExitCommand(Arguments.subList(1, Arguments.size()));
+                    return new ExitCommand(Arguments);
                 case "usage":
-                    return new UsageCommand(Arguments.subList(1, Arguments.size()));
+                    return new UsageCommand(Arguments);
                 case "copy":
-                    return new CopyCommand(Arguments.subList(1, Arguments.size()));
+                    return new CopyCommand(Arguments);
                 case "move":
-                    return new MoveCommand(Arguments.subList(1, Arguments.size()));
+                    return new MoveCommand(Arguments);
                 case "rename":
-                    return new RenameCommand(Arguments.subList(1, Arguments.size()));
+                    return new RenameCommand(Arguments);
                 case "delete":
-                    return new DeleteCommand(Arguments.subList(1, Arguments.size()));
+                    return new DeleteCommand(Arguments);
                 case "list":
-                    return new ListDirectoryCommand(Arguments.subList(1, Arguments.size()));
+                    return new ListDirectoryCommand(Arguments);
                 default:
                     System.out.print("Command not found.\n\t");
-                    return new UsageCommand(Arguments.subList(1, Arguments.size()));
+                    return new UsageCommand(Arguments);
             }
         }
         else

@@ -22,11 +22,8 @@ public abstract class AbstractUnaryDirectoryCommand extends AbstractCommand
         Validation.AddValidator(new DirectoryExistenceValidator(Arguments, (short)0, StickToSyntaxMessage));
     }
 
-    public AbstractUnaryDirectoryCommand(List<String> args)
+    private final void initializeFields()
     {
-        super(args);
-        SetupValidation();
-
         File maybeDirectory = new File((Arguments.size() >= 1) ? Arguments.get(0) : "");
         files = new ArrayList<>();
         directories = new ArrayList<>();
@@ -46,5 +43,13 @@ public abstract class AbstractUnaryDirectoryCommand extends AbstractCommand
             directories = null;
             files = null;
         }
+    }
+
+    public AbstractUnaryDirectoryCommand(List<String> args)
+    {
+        super(args);
+        SetupValidation();
+
+        initializeFields();
     }
 }
