@@ -1,3 +1,6 @@
+import sys
+
+
 class TwoNums(object):
     def __init__(self, x, y):
         self.x = x
@@ -13,8 +16,12 @@ class TwoNums(object):
         return self.x ** self.y
 
 
-if __name__ == "__main__":
+def main(argv):
     n = TwoNums(3, 4)
     print("Sum: ", n.sum())
     print("Mul: ", n.mul())
     print("Pow: ", n.pow())
+
+
+if __name__ == "__main__":
+    main(sys.argv)
