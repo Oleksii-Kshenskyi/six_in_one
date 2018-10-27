@@ -3,10 +3,7 @@ package JavaFileutil.JavaCommandEngine;
 import java.util.List;
 import java.util.ArrayList;
 import JavaFileutil.AbstractCommands.AbstractCommand;
-import JavaFileutil.JavaFileCommands.CopyCommand;
-import JavaFileutil.JavaFileCommands.DeleteCommand;
-import JavaFileutil.JavaFileCommands.MoveCommand;
-import JavaFileutil.JavaFileCommands.RenameCommand;
+import JavaFileutil.JavaFileCommands.*;
 
 public class CommandFactory
 {
@@ -35,12 +32,14 @@ public class CommandFactory
                     return new RenameCommand(Arguments.subList(1, Arguments.size()));
                 case "delete":
                     return new DeleteCommand(Arguments.subList(1, Arguments.size()));
+                case "list":
+                    return new ListDirectoryCommand(Arguments.subList(1, Arguments.size()));
                 default:
                     System.out.print("Command not found.\n\t");
                     return new UsageCommand(Arguments.subList(1, Arguments.size()));
             }
         }
         else
-            return new UsageCommand(new ArrayList());
+            return new UsageCommand(new ArrayList<>());
     }
 }
