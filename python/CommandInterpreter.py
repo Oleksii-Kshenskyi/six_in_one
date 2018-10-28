@@ -10,7 +10,7 @@ class CommandInterpreter(object):
     def run_event_loop(cls):
         while True:
             choice = input("===> ")
-            arguments = choice.splitlines(False)
+            arguments = list(filter(None, choice.split(" ")))
             CommandFactory(arguments).create().execute()
 
     @classmethod

@@ -1,4 +1,4 @@
-from UsageCommand import *
+from NoneCommand import *
 
 
 class CommandFactory(object):
@@ -10,10 +10,10 @@ class CommandFactory(object):
         return {
             "exit": ExitCommand(self.arguments),
             "usage": UsageCommand(self.arguments)
-        }.get(choice, UsageCommand([]))
+        }.get(choice, NoneCommand())
 
     def create(self):
-        if self.arguments.__len__() > 0 and not self.arguments[0]:
+        if self.arguments.__len__() > 0:
             return self.choose_command(self.arguments[0])
         else:
-            return self.choose_command("usage")
+            return UsageCommand([])

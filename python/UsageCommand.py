@@ -18,13 +18,22 @@ class UsageCommand(AbstractCommand):
                "\t" + cls._note_preface() + cls.argument_limit_message()
 
     @staticmethod
-    def choose_usage(choice):
+    def _available_commands():
+        return "Available commands: " + ', '.join(["usage", "exit"]) + "."
+
+    @staticmethod
+    def _command_unknown_preface():
+        return "Usage doesn't know this command."
+
+    @staticmethod
+    def _choose_usage(choice):
         return {
             "usage": UsageCommand.usage_string(),
-            "exit": ExitCommand.usage_string()
-        }.get(choice, UsageCommand.usage_string())
+            "exit": ExitCommand.usage_string(),
+            "": UsageCommand._available_commands()
+        }.get(choice, UsageCommand._command_unknown_preface() + "\n\t" + UsageCommand._available_commands())
 
     def execute(self):
-        print(self.choose_usage(self.arguments[0]))
+        print(self._choose_usage(self.arguments[0] if self.arguments.__len__() > 0 else ""))
 
 

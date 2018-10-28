@@ -10,10 +10,6 @@ class AbstractCommand(ABC):
     def _note_preface(cls):
         return str("NOTE: ")
 
-    @property
-    def _available_commands(self):
-        return ["usage", "exit"]
-
     @abstractmethod
     def execute(self):
         pass
