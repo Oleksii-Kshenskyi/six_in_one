@@ -3,9 +3,6 @@ from CommandFactory import *
 
 class CommandInterpreter(object):
 
-    # def __init__(self):
-    #    pass
-
     @classmethod
     def run_event_loop(cls):
         while True:
