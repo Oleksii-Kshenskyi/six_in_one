@@ -1,4 +1,5 @@
 from AbstractCommands.AbstractCommand import *
+from Validators.ArgumentCountValidator import *
 
 
 class ExitCommand(AbstractCommand):
@@ -11,5 +12,14 @@ class ExitCommand(AbstractCommand):
                "Use it the following way:\n" + \
                "\t'exit' - exits the application."
 
+    @staticmethod
+    def _no_arguments_needed_message():
+        return "the exit command does not require any arguments."
+
+    def _setup_validation(self):
+        self._validation += [ArgumentCountValidator(self.arguments, 0, self._no_arguments_needed_message())]
+
     def execute(self):
+        if not self._validation.validate():
+            return
         exit(0)

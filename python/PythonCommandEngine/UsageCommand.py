@@ -1,4 +1,5 @@
 from .ExitCommand import *
+from Validators.ArgumentLimitValidator import *
 
 
 class UsageCommand(AbstractCommand):
@@ -6,7 +7,7 @@ class UsageCommand(AbstractCommand):
         super().__init__(args)
 
     @classmethod
-    def argument_limit_message(cls):
+    def _argument_limit_message(cls):
         return "The command takes strictly less than 2 arguments."
 
     @classmethod
@@ -15,7 +16,7 @@ class UsageCommand(AbstractCommand):
                "Use it the following way:\n" + \
                "\t'usage' - displays the list of available commands.\n" + \
                "\t'usage <command>' - displays the description and way to use for <command>.\n" + \
-               "\t" + cls._note_preface() + cls.argument_limit_message()
+               "\t" + cls._note_preface() + cls._argument_limit_message()
 
     @staticmethod
     def _available_commands():
@@ -24,6 +25,9 @@ class UsageCommand(AbstractCommand):
     @staticmethod
     def _command_unknown_preface():
         return "Usage doesn't know this command."
+
+    def _setup_validation(self):
+        self._validation += [ArgumentLimitValidator(self.arguments, 2, self._argument_limit_message())]
 
     @staticmethod
     def _choose_usage(choice):
@@ -34,6 +38,8 @@ class UsageCommand(AbstractCommand):
         }.get(choice, UsageCommand._command_unknown_preface() + "\n\t" + UsageCommand._available_commands())
 
     def execute(self):
+        if not self._validation.validate():
+            return
         print(self._choose_usage(self.arguments[0] if self.arguments.__len__() > 0 else ""))
 
 
