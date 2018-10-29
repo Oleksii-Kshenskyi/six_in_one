@@ -1,4 +1,4 @@
-from UsageCommand import *
+from .UsageCommand import *
 
 
 class NoneCommand(AbstractCommand):

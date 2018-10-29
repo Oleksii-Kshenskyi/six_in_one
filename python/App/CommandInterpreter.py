@@ -1,4 +1,4 @@
-from CommandFactory import *
+from PythonCommandEngine.CommandFactory import *
 
 
 class CommandInterpreter(object):

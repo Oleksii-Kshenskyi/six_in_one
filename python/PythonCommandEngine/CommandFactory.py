@@ -1,4 +1,4 @@
-from NoneCommand import *
+from .NoneCommand import *
 
 
 class CommandFactory(object):

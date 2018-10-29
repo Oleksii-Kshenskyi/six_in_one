@@ -1,5 +1,5 @@
 import sys
-from CommandInterpreter import *
+from App.CommandInterpreter import *
 
 
 def main(argv):

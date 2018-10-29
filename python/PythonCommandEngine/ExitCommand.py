@@ -1,4 +1,4 @@
-from AbstractCommand import *
+from AbstractCommands.AbstractCommand import *
 
 
 class ExitCommand(AbstractCommand):
