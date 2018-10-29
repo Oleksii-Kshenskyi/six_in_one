@@ -5,6 +5,7 @@ from Validators.ArgumentCountValidator import *
 class ExitCommand(AbstractCommand):
     def __init__(self, args):
         super().__init__(args)
+        self._setup_validation()
 
     @classmethod
     def usage_string(cls):
@@ -17,7 +18,7 @@ class ExitCommand(AbstractCommand):
         return "the exit command does not require any arguments."
 
     def _setup_validation(self):
-        self._validation += [ArgumentCountValidator(self.arguments, 0, self._no_arguments_needed_message())]
+        self._validation.add_validator(ArgumentCountValidator(self.arguments, 0, self._no_arguments_needed_message()))
 
     def execute(self):
         if not self._validation.validate():

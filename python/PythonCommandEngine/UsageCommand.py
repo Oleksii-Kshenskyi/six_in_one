@@ -5,6 +5,7 @@ from Validators.ArgumentLimitValidator import *
 class UsageCommand(AbstractCommand):
     def __init__(self, args):
         super().__init__(args)
+        self._setup_validation()
 
     @classmethod
     def _argument_limit_message(cls):
@@ -27,7 +28,7 @@ class UsageCommand(AbstractCommand):
         return "Usage doesn't know this command."
 
     def _setup_validation(self):
-        self._validation += [ArgumentLimitValidator(self.arguments, 2, self._argument_limit_message())]
+        self._validation.add_validator(ArgumentLimitValidator(self.arguments, 2, self._argument_limit_message()))
 
     @staticmethod
     def _choose_usage(choice):
