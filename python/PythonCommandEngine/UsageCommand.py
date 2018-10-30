@@ -1,11 +1,12 @@
 from .ExitCommand import *
 from Validators.ArgumentLimitValidator import *
+from PythonFileCommands.DeleteCommand import *
 
 
 class UsageCommand(AbstractCommand):
     def __init__(self, args):
         super().__init__(args)
-        self._setup_validation()
+        self._usage_validation()
 
     @classmethod
     def _argument_limit_message(cls):
@@ -27,7 +28,7 @@ class UsageCommand(AbstractCommand):
     def _command_unknown_preface():
         return "Usage doesn't know this command."
 
-    def _setup_validation(self):
+    def _usage_validation(self):
         self._validation.add_validator(ArgumentLimitValidator(self.arguments, 2, self._argument_limit_message()))
 
     @staticmethod
@@ -35,6 +36,7 @@ class UsageCommand(AbstractCommand):
         return {
             "usage": UsageCommand.usage_string(),
             "exit": ExitCommand.usage_string(),
+            "delete": DeleteCommand.usage_string(),
             "": UsageCommand._available_commands()
         }.get(choice, UsageCommand._command_unknown_preface() + "\n\t" + UsageCommand._available_commands())
 
