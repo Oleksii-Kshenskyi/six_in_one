@@ -1,4 +1,5 @@
 from .NoneCommand import *
+from PythonFileCommands.DeleteCommand import *
 
 
 class CommandFactory(object):
@@ -9,7 +10,8 @@ class CommandFactory(object):
     def choose_command(self, choice):
         return {
             "exit": ExitCommand(self.arguments),
-            "usage": UsageCommand(self.arguments)
+            "usage": UsageCommand(self.arguments),
+            "delete": DeleteCommand(self.arguments)
         }.get(choice, NoneCommand())
 
     def create(self):

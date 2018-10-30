@@ -21,7 +21,7 @@ class UsageCommand(AbstractCommand):
 
     @staticmethod
     def _available_commands():
-        return "Available commands: " + ', '.join(["usage", "exit"]) + "."
+        return "Available commands: " + ', '.join(["usage", "exit", "delete"]) + "."
 
     @staticmethod
     def _command_unknown_preface():
