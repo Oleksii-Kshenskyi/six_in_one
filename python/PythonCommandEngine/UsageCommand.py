@@ -2,6 +2,7 @@ from .ExitCommand import *
 from Validators.ArgumentLimitValidator import *
 from PythonFileCommands.DeleteCommand import *
 from PythonSearchCommands.ListCommand import *
+from PythonSearchCommands.LookupCommand import *
 
 
 class UsageCommand(AbstractCommand):
@@ -23,7 +24,7 @@ class UsageCommand(AbstractCommand):
 
     @staticmethod
     def _available_commands():
-        return "Available commands: " + ', '.join(["usage", "exit", "delete", "list"]) + "."
+        return "Available commands: " + ', '.join(["usage", "exit", "delete", "list", "lookup"]) + "."
 
     @staticmethod
     def _command_unknown_preface():
@@ -39,6 +40,7 @@ class UsageCommand(AbstractCommand):
             "exit": ExitCommand.usage_string(),
             "delete": DeleteCommand.usage_string(),
             "list": ListCommand.usage_string(),
+            "lookup": LookupCommand.usage_string(),
             "": UsageCommand._available_commands()
         }.get(choice, UsageCommand._command_unknown_preface() + "\n\t" + UsageCommand._available_commands())
 
