@@ -1,5 +1,6 @@
 from .NoneCommand import *
 from PythonFileCommands.DeleteCommand import *
+from PythonSearchCommands.ListCommand import *
 
 
 class CommandFactory(object):
@@ -11,7 +12,8 @@ class CommandFactory(object):
         return {
             "exit": ExitCommand(self.arguments),
             "usage": UsageCommand(self.arguments),
-            "delete": DeleteCommand(self.arguments)
+            "delete": DeleteCommand(self.arguments),
+            "list": ListCommand(self.arguments)
         }.get(choice, NoneCommand())
 
     def create(self):

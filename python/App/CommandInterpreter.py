@@ -1,5 +1,4 @@
 from PythonCommandEngine.CommandFactory import *
-import whoosh
 
 
 class CommandInterpreter(object):
@@ -17,5 +16,4 @@ class CommandInterpreter(object):
         print("Author: Oleksii <DarkSpectre> Kshenskyi.")
         CommandFactory(["usage"]).create().execute()
         print("Type 'usage <command>' to learn about the <command> you're interested in.")
-        print("WHOOSH AVAILABLE: ", whoosh.versionstring())
         cls.run_event_loop()
