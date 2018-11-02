@@ -13,16 +13,16 @@ class LookupCommand(AbstractDirectoryTraversalCommand):
 
     def __init__(self, args):
         super().__init__(args)
+        self._queries = []
         self._results = {}
         try:
-            jfile = open(self.arguments[1], "r") if self.arguments.__len__() > 0 else None
-            config = json.load(jfile) if jfile else None
-            if jfile:
-                jfile.close()
-            self._queries = config["queries"] if config else []
-            self._results = {query: [] for query in self._queries} if config else {}
+            if self.arguments.__len__() >= 2:
+                with open(self.arguments[1], "r") as jfile:
+                    config = json.load(jfile)
+                    self._queries = config["queries"]
+                    self._results = {query: [] for query in self._queries}
         except Exception as err:
-            print("Lookup exception while loading JSON: " + err.__str__())
+            print("Lookup exception while loading JSON: " + str(err.__class__) + " - " + err.__str__())
 
     @staticmethod
     def find_in_file(filename, query, start=0):
