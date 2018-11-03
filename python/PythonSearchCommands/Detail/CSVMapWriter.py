@@ -21,8 +21,8 @@ class CSVMapWriter(AbstractMapWriter):
     def _max_of_lens(self):
         lens = []
         for key in self._map_to_write.keys():
-            lens += [self._map_to_write[key]]
-        return len(max(lens))
+            lens += [len(self._map_to_write[key])]
+        return max(lens)
 
     def _create_dicts(self):
         result_dicts = []
