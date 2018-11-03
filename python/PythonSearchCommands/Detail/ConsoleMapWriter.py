@@ -6,4 +6,11 @@ class ConsoleMapWriter(AbstractMapWriter):
         super().__init__(map_to_write)
 
     def write(self):
-        print(self._map_to_write)
+        for key in self._map_to_write.keys():
+            print(">> Results for query '", key, "':", sep='')
+            if len(self._map_to_write[key]) != 0:
+                for item in self._map_to_write[key]:
+                    print('\t', item, sep='')
+            else:
+                print("Nothing found.")
+            print()

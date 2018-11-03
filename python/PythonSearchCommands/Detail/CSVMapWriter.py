@@ -17,6 +17,7 @@ class CSVMapWriter(AbstractMapWriter):
         list_writer.writeheader()
         for row in self._create_dicts():
             list_writer.writerow(row)
+        print("Writing to a CSV file succeeded!")
 
     def _max_of_lens(self):
         lens = []
