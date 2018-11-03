@@ -1,4 +1,5 @@
 from AbstractCommands.AbstractDirectoryTraversalCommand import *
+from .Detail.CSVMapWriter import *
 import json
 
 
@@ -54,4 +55,5 @@ class LookupCommand(AbstractDirectoryTraversalCommand):
 
     def execute(self):
         self.traverse()
-        print("RESULTS: ", self._results)
+        CSVMapWriter(self._results, "H:\out.csv").write()
+        print(self._note_preface() + "Write to a CSV file succeeded!")
