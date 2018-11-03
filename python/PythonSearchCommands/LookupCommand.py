@@ -1,4 +1,5 @@
 from AbstractCommands.AbstractDirectoryTraversalCommand import *
+from .Detail.CSVMapWriter import *
 from .Detail.ConsoleMapWriter import *
 import json
 
@@ -12,6 +13,12 @@ class LookupCommand(AbstractDirectoryTraversalCommand):
                "\t'lookup <directory1> <config1>'\n" + \
                "\t" + cls._note_preface() + "WORK IN PROGRESS!"
 
+    def _choose_writer(self, writer_type):
+        return {
+            "console": ConsoleMapWriter(),
+            "csv": CSVMapWriter(self._csv_path)
+        }.get(writer_type, ConsoleMapWriter())
+
     def __init__(self, args):
         super().__init__(args)
         self._queries = []
@@ -22,6 +29,10 @@ class LookupCommand(AbstractDirectoryTraversalCommand):
                     config = json.load(jfile)
                     self._queries = config["queries"]
                     self._results = {query: [] for query in self._queries}
+                    self._writer_type = config["writer_type"]
+                    self._csv_path = config["csv_path"]
+                    self._writer = self._choose_writer(self._writer_type)
+
         except Exception as err:
             print("Lookup exception while loading JSON: " + str(err.__class__) + " - " + err.__str__())
 
@@ -55,4 +66,4 @@ class LookupCommand(AbstractDirectoryTraversalCommand):
 
     def execute(self):
         self.traverse()
-        ConsoleMapWriter(self._results).write()
+        self._writer.write(self._results)
