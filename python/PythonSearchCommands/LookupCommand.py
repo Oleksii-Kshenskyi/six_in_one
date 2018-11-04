@@ -2,6 +2,7 @@ from AbstractCommands.AbstractDirectoryTraversalCommand import *
 from .Detail.CSVMapWriter import *
 from .Detail.ConsoleMapWriter import *
 import json
+import re
 
 
 class LookupCommand(AbstractDirectoryTraversalCommand):
@@ -31,8 +32,8 @@ class LookupCommand(AbstractDirectoryTraversalCommand):
                     self._results = {query: [] for query in self._queries}
                     self._writer_type = config["writer_type"]
                     self._csv_path = config["csv_path"]
+                    self._masks = config["masks"]
                     self._writer = self._choose_writer(self._writer_type)
-
         except Exception as err:
             print("Lookup exception while loading JSON: " + str(err.__class__) + " - " + err.__str__())
 
@@ -57,12 +58,21 @@ class LookupCommand(AbstractDirectoryTraversalCommand):
                 else:
                     return -1
 
+    def _match_masks(self, test_this):
+        if len(self._masks) == 0:
+            return True
+        for mask in self._masks:
+            if re.search(mask, test_this):
+                return True
+        return False
+
     def _traverse_single(self, rootname, dirs, files):
         for query in self._queries:
             for file in files:
-                fullpath = os.path.join(rootname, file)
-                if self.find_in_file(fullpath, query) != -1:
-                    self._results[query] += [fullpath]
+                if self._match_masks(file):
+                    fullpath = os.path.join(rootname, file)
+                    if self.find_in_file(fullpath, query) != -1:
+                        self._results[query] += [fullpath]
 
     def execute(self):
         self.traverse()
