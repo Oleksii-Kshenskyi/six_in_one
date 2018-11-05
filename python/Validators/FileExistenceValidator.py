@@ -1,4 +1,4 @@
-from .AbstractFilesystemEntryValidator import *
+from Abstractions.AbstractFilesystemEntryValidator import *
 
 
 class FileExistenceValidator(AbstractFilesystemEntryValidator):

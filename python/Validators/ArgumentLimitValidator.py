@@ -1,4 +1,4 @@
-from .AbstractListValidator import *
+from Abstractions.AbstractListValidator import *
 
 
 class ArgumentLimitValidator(AbstractListValidator):

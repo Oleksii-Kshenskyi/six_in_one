@@ -1,4 +1,4 @@
-from .AbstractValidator import *
+from Abstractions.AbstractValidator import *
 
 
 class AbstractListValidator(AbstractValidator):

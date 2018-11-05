@@ -1,4 +1,4 @@
-from .AbstractValueValidator import *
+from Abstractions.AbstractValueValidator import *
 from pathlib import Path
 
 
