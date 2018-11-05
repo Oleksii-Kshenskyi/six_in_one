@@ -1,4 +1,4 @@
-from AbstractCommands.AbstractCommand import *
+from Abstractions.AbstractCommand import *
 from Validators.ArgumentCountValidator import *
 
 

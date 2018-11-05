@@ -1,4 +1,4 @@
-from AbstractCommands.AbstractDirectoryTraversalCommand import *
+from Abstractions.AbstractDirectoryTraversalCommand import *
 
 
 class ListCommand(AbstractDirectoryTraversalCommand):

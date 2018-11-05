@@ -1,4 +1,4 @@
-from .AbstractMapWriter import *
+from Abstractions.AbstractMapWriter import *
 
 
 class ConsoleMapWriter(AbstractMapWriter):

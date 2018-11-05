@@ -1,4 +1,4 @@
-from AbstractCommands.AbstractUnaryFileCommand import *
+from Abstractions.AbstractUnaryFileCommand import *
 from Validators.FileExistenceValidator import *
 
 

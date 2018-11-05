@@ -1,4 +1,4 @@
-from AbstractCommands.AbstractDirectoryTraversalCommand import *
+from Abstractions.AbstractDirectoryTraversalCommand import *
 from .Detail.CSVMapWriter import *
 from .Detail.ConsoleMapWriter import *
 import json

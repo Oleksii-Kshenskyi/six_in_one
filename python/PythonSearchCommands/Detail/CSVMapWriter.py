@@ -1,5 +1,5 @@
 import csv
-from .AbstractMapWriter import *
+from Abstractions.AbstractMapWriter import *
 
 
 class CSVMapWriter(AbstractMapWriter):
