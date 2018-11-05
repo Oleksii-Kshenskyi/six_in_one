@@ -7,7 +7,7 @@ class ArgumentCountValidator(AbstractListValidator):
 
     def validate(self):
         if self._validate_this_list.__len__() != self._count:
-            print(self._error_preface() + self._message)
+            self._print_validation_error()
             return False
         else:
             return True

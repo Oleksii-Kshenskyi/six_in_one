@@ -7,6 +7,6 @@ class FileExistenceValidator(AbstractFilesystemEntryValidator):
 
     def validate(self):
         if not self._validate_this.exists() or not self._validate_this.is_file():
-            print(self._error_preface() + self._message)
+            self._print_validation_error()
             return False
         return True

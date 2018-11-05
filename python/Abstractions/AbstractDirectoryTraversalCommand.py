@@ -1,12 +1,20 @@
 from .AbstractCommand import *
-from pathlib import Path
 import os
+from Validators.DirectoryExistenceValidator import *
 
 
 class AbstractDirectoryTraversalCommand(AbstractCommand):
+    @staticmethod
+    def _dir_doesnt_exist():
+        return "directory doesn't exist."
+
     def __init__(self, args):
         super().__init__(args)
         self._directory = Path(self.arguments[0]) if self.arguments.__len__() > 0 else Path("")
+        self._dir_traversal_validation()
+
+    def _dir_traversal_validation(self):
+        self._validation.add_validator(DirectoryExistenceValidator(str(self._directory), self._dir_doesnt_exist()))
 
     def traverse(self, topdown=True):
         for (rootname, dirs, files) in os.walk(self._directory, topdown=topdown):

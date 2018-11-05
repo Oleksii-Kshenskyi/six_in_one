@@ -1,8 +1,8 @@
 from Abstractions.AbstractDirectoryTraversalCommand import *
 from .Detail.CSVMapWriter import *
 from .Detail.ConsoleMapWriter import *
-import json
 import re
+from .Detail.JSONLookupConfig import *
 
 
 class LookupCommand(AbstractDirectoryTraversalCommand):
@@ -17,26 +17,15 @@ class LookupCommand(AbstractDirectoryTraversalCommand):
     def _choose_writer(self, writer_type):
         return {
             "console": ConsoleMapWriter(),
-            "csv": CSVMapWriter(self._csv_path)
+            "csv": CSVMapWriter(self._config.csv_path)
         }.get(writer_type, ConsoleMapWriter())
 
     def __init__(self, args):
         super().__init__(args)
-        self._queries = []
-        self._results = {}
-        self._masks = []
-        try:
-            if self.arguments.__len__() >= 2:
-                with open(self.arguments[1], "r") as jfile:
-                    config = json.load(jfile)
-                    self._queries = config["queries"]
-                    self._results = {query: [] for query in self._queries}
-                    self._writer_type = config["writer_type"]
-                    self._csv_path = config["csv_path"]
-                    self._masks = config["masks"]
-                    self._writer = self._choose_writer(self._writer_type)
-        except Exception as err:
-            print("Lookup exception while loading JSON: " + str(err.__class__) + " - " + err.__str__())
+        self._config = JSONLookupConfig(self.arguments[1] if self.arguments.__len__() >= 2 else "")
+        if self._config.is_valid:
+            self._results = {query: [] for query in self._config.queries}
+            self._writer = self._choose_writer(self._config.writer_type)
 
     @staticmethod
     def find_in_file(filename, query, start=0):
@@ -50,7 +39,6 @@ class LookupCommand(AbstractDirectoryTraversalCommand):
                 tellpoint = file.tell()
                 if overlap <= tellpoint < filesize:
                     file.seek(tellpoint - overlap)
-
                 buffer = file.read(bsize)
                 if buffer != b'' or buffer:
                     pos = buffer.find(bytes(query, 'utf8'))
@@ -60,15 +48,15 @@ class LookupCommand(AbstractDirectoryTraversalCommand):
                     return -1
 
     def _match_masks(self, test_this):
-        if len(self._masks) == 0:
+        if len(self._config.masks) == 0:
             return True
-        for mask in self._masks:
+        for mask in self._config.masks:
             if re.search(mask, test_this):
                 return True
         return False
 
     def _traverse_single(self, rootname, dirs, files):
-        for query in self._queries:
+        for query in self._config.queries:
             for file in files:
                 if self._match_masks(file):
                     try:
@@ -79,5 +67,7 @@ class LookupCommand(AbstractDirectoryTraversalCommand):
                         print(self._note_preface() + "permission error for file '" + file + "', skipping.")
 
     def execute(self):
+        if not self._validation.validate() or not self._config.is_valid:
+            return
         self.traverse()
         self._writer.write(self._results)
