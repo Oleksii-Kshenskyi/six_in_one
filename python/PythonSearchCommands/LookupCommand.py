@@ -24,6 +24,7 @@ class LookupCommand(AbstractDirectoryTraversalCommand):
         super().__init__(args)
         self._queries = []
         self._results = {}
+        self._masks = []
         try:
             if self.arguments.__len__() >= 2:
                 with open(self.arguments[1], "r") as jfile:
@@ -70,9 +71,12 @@ class LookupCommand(AbstractDirectoryTraversalCommand):
         for query in self._queries:
             for file in files:
                 if self._match_masks(file):
-                    fullpath = os.path.join(rootname, file)
-                    if self.find_in_file(fullpath, query) != -1:
-                        self._results[query] += [fullpath]
+                    try:
+                        fullpath = os.path.join(rootname, file)
+                        if self.find_in_file(fullpath, query) != -1:
+                            self._results[query] += [fullpath]
+                    except PermissionError:
+                        print(self._note_preface() + "permission error for file '" + file + "', skipping.")
 
     def execute(self):
         self.traverse()
