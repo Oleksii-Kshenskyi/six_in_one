@@ -58,9 +58,7 @@ class JSONLookupConfig(JSONConfigLoader):
     def _validate_type_or_default(self, value_name, value_type, default):
         if MapValueTypeValidator(self._json_object,
                                  value_name,
-                                 value_type,
-                                 self._value_existence_message(),
-                                 self._value_type_message()).validate():
+                                 value_type).validate():
             return self._json_object[value_name]
         else:
             self.masks = default

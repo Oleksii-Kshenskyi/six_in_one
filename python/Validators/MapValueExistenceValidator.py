@@ -11,6 +11,7 @@ class MapValueExistenceValidator(AbstractValidator):
         try:
             self._validate_this_map[self._key]
         except KeyError:
-            print(self._error_string().format(self._key))
+            if self._message:
+                print(self._error_string().format(self._key))
             return False
         return True
