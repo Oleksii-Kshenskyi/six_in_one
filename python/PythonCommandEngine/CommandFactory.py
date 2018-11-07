@@ -9,17 +9,18 @@ class CommandFactory(object):
         self.arguments = []
         self.arguments += args
 
-    def choose_command(self, choice):
+    @staticmethod
+    def choose_command(choice):
         return {
-            "exit": ExitCommand(self.arguments),
-            "usage": UsageCommand(self.arguments),
-            "delete": DeleteCommand(self.arguments),
-            "list": ListCommand(self.arguments),
-            "lookup": LookupCommand(self.arguments)
-        }.get(choice, NoneCommand())
+            "exit": ExitCommand,
+            "usage": UsageCommand,
+            "delete": DeleteCommand,
+            "list": ListCommand,
+            "lookup": LookupCommand
+        }.get(choice, NoneCommand)
 
     def create(self):
         if self.arguments.__len__() > 0:
             return self.choose_command(self.arguments[0])
         else:
-            return UsageCommand([])
+            return UsageCommand
