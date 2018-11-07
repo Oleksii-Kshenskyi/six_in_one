@@ -10,7 +10,7 @@ class MapValueTypeValidator(MapValueExistenceValidator):
     def validate(self):
         if not super().validate():
             return False
-        if not self._validate_this_map[self._key] is self._value_type:
+        if not type(self._validate_this_map[self._key]) is self._value_type:
             if self._type_message:
                 print(self._error_preface() + self._type_message.format(self._key,
                                                                         str(type(self._validate_this_map[self._key])),
