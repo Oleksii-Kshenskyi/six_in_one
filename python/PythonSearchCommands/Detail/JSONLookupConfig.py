@@ -48,8 +48,8 @@ class JSONLookupConfig(JSONConfigLoader):
                                        str,
                                        self._value_existence_message(),
                                        self._value_type_message()).validate() \
-            and not DirectoryExistenceValidator(str(Path(self._json_object["csv_path"]).parent),
-                                                self._csv_path_broken()):
+            or not DirectoryExistenceValidator(str(Path(self._json_object["csv_path"]).parent),
+                                               self._csv_path_broken()).validate():
             self.is_valid = False
             return None
         else:
