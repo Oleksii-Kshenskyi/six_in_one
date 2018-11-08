@@ -48,7 +48,7 @@ class LookupCommand(AbstractDirectoryTraversalCommand):
                     return -1
 
     def _match_masks(self, test_this):
-        if len(self._config.masks) == 0:
+        if not self._config.masks or len(self._config.masks) == 0:
             return True
         for mask in self._config.masks:
             if re.search(mask, test_this):
