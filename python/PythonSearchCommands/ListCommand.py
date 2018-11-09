@@ -1,4 +1,5 @@
 from Abstractions.AbstractDirectoryTraversalCommand import *
+from .Detail.ConsoleMapWriter import *
 
 
 class ListCommand(AbstractDirectoryTraversalCommand):
@@ -18,11 +19,12 @@ class ListCommand(AbstractDirectoryTraversalCommand):
 
     def __init__(self, args):
         super().__init__(args)
+        self._writer = ConsoleMapWriter()
+        self._results = {}
 
     def _traverse_single(self, rootname, dirs, files):
-        print("---" + rootname + "---:")
-        print("DIRS: ", dirs)
-        print("FILES: ", files)
+        self._results[rootname] = files
 
     def execute(self):
         self.traverse(topdown=False)
+        self._writer.write(self._results)
