@@ -9,7 +9,6 @@ class MapValueExistenceValidator(AbstractValidator):
 
     def validate(self):
         if self._key not in self._validate_this_map.keys():
-            if self._message:
-                print(self._error_string().format(self._key))
+            self._error_format(self._key)
             return False
         return True

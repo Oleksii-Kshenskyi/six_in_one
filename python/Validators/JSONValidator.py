@@ -14,7 +14,6 @@ class JSONValidator(FileExistenceValidator):
             with open(self._validate_this, "r") as json_file:
                 json.load(json_file)
         except json.JSONDecodeError:
-            if self._json_message:
-                print(self._error_preface() + self._json_message)
+            self._error_format_static(self._json_message)
             return False
         return True

@@ -13,8 +13,14 @@ class AbstractValidator(ABC):
         if self._message:
             print(self._error_preface() + self._message)
 
-    def _error_string(self):
-        return self._error_preface() + self._message
+    def _error_format(self, *args):
+        if self._message:
+            print(self._error_preface() + self._message.format(*args))
+
+    @classmethod
+    def _error_format_static(cls, error_string, *args):
+        if error_string:
+            print(cls._error_preface() + error_string.format(*args))
 
     @abstractmethod
     def validate(self):

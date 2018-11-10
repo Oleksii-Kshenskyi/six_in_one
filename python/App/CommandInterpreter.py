@@ -2,7 +2,6 @@ from PythonCommandEngine.CommandFactory import *
 
 
 class CommandInterpreter(object):
-
     @classmethod
     def run_event_loop(cls):
         while True:
