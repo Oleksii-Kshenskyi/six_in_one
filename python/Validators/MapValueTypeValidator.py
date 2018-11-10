@@ -12,7 +12,7 @@ class MapValueTypeValidator(MapValueExistenceValidator):
             return False
         if not isinstance(self._validate_this_map[self._key], self._value_type):
             if self._type_message:
-                self._error_format_static(self._type_message.format,
+                self._error_format_static(self._type_message,
                                           self._key,
                                           str(type(self._validate_this_map[self._key])),
                                           self._value_type)

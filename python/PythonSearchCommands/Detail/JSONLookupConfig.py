@@ -35,7 +35,8 @@ class JSONLookupConfig(JSONConfigLoader):
                                                              self._value_existence_message(),
                                                              self._value_type_message()))
         self._validators.add_validator(InListTypeValidator(self._json_object["queries"]
-                                                           if "queries" in self._json_object.keys()
+                                                           if self._json_object
+                                                           and "queries" in self._json_object.keys()
                                                            else [],
                                                            str,
                                                            self._queries_type_incorrect_message()))
