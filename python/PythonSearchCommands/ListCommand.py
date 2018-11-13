@@ -31,5 +31,8 @@ class ListCommand(AbstractDirectoryTraversalCommand):
         self._results[rootname] = files
 
     def execute(self):
+        if not self._validation.validate():
+            return
+
         self.traverse(topdown=True)
         self._writer.write(self._results)
