@@ -17,14 +17,19 @@ class ListCommand(AbstractDirectoryTraversalCommand):
                "\twhere [F|D] shows if it is a file or a directory.\n" + \
                "\t" + cls._note_preface() + cls._argument_count_mismatch_message()
 
+    def _get_directory(self):
+        return self._directory
+
     def __init__(self, args):
         super().__init__(args)
         self._writer = ConsoleMapWriter()
         self._results = {}
+        self._directory = Path(self.arguments[0]) if self.arguments.__len__() > 0 else Path("")
+        self._dir_traversal_validation()
 
     def _traverse_single(self, rootname, dirs, files):
         self._results[rootname] = files
 
     def execute(self):
-        self.traverse(topdown=False)
+        self.traverse(topdown=True)
         self._writer.write(self._results)
