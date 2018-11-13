@@ -22,6 +22,10 @@ class JSONLookupConfig(JSONConfigLoader):
     def _queries_type_incorrect_message():
         return "all elements in the <queries> list should be strings!"
 
+    @staticmethod
+    def _directory_path_invalid():
+        return "<directory_path> should contain a valid path to an existing directory!"
+
     def __init__(self, json_file):
         super().__init__(json_file)
         self.is_valid = False
@@ -40,12 +44,24 @@ class JSONLookupConfig(JSONConfigLoader):
                                                            else [],
                                                            str,
                                                            self._queries_type_incorrect_message()))
+        self._validators.add_validator(MapValueTypeValidator(self._json_object,
+                                                             "directory_path",
+                                                             str,
+                                                             self._value_existence_message(),
+                                                             self._value_type_message()))
+        self._validators.add_validator(DirectoryExistenceValidator(self._json_object["directory_path"]
+                                                                   if self._json_object
+                                                                   and "directory_path" in self._json_object.keys()
+                                                                   and isinstance(self._json_object["directory_path"], str)
+                                                                   else "",
+                                                                   self._value_type_message()))
 
     def _initialize_properties(self):
         if not self._validators.validate():
             self.is_valid = False
         else:
             self.queries = self._json_object["queries"]
+            self.directory_path = self._json_object["directory_path"]
             self.writer_type = self._validate_type_or_default("writer_type", str, "console")
             self.masks = self._validate_type_or_default("masks", list, [])
             self._validate_mask_types()
@@ -96,3 +112,4 @@ class JSONLookupConfig(JSONConfigLoader):
         self.writer_type = None
         self.masks = None
         self.csv_path = None
+        self.directory_path = None

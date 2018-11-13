@@ -20,12 +20,16 @@ class LookupCommand(AbstractDirectoryTraversalCommand):
             "csv": CSVMapWriter(self._config.csv_path)
         }.get(writer_type, ConsoleMapWriter())
 
+    def _get_directory(self):
+        return self._directory
+
     def __init__(self, args):
         super().__init__(args)
-        self._config = JSONLookupConfig(self.arguments[1] if self.arguments.__len__() >= 2 else "")
+        self._config = JSONLookupConfig(self.arguments[0] if self.arguments.__len__() >= 1 else "")
         if self._config.is_valid:
             self._results = {query: [] for query in self._config.queries}
             self._writer = self._choose_writer(self._config.writer_type)
+            self._directory = self._config.directory_path
 
     @staticmethod
     def find_in_file(filename, query, start=0):
