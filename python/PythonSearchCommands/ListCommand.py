@@ -1,5 +1,6 @@
 from Abstractions.AbstractDirectoryTraversalCommand import *
 from .Detail.ConsoleMapWriter import *
+from Validators.ArgumentCountValidator import *
 
 
 class ListCommand(AbstractDirectoryTraversalCommand):
@@ -26,6 +27,10 @@ class ListCommand(AbstractDirectoryTraversalCommand):
         self._results = {}
         self._directory = Path(self.arguments[0]) if self.arguments.__len__() > 0 else Path("")
         self._dir_traversal_validation()
+        self._list_dir_validation()
+
+    def _list_dir_validation(self):
+        self._validation.add_validator(ArgumentCountValidator(self.arguments, 1, self._argument_count_mismatch_message()))
 
     def _traverse_single(self, rootname, dirs, files):
         self._results[rootname] = files
