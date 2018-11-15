@@ -3,16 +3,26 @@ from .Detail.CSVMapWriter import *
 from .Detail.ConsoleMapWriter import *
 import re
 from .Detail.JSONLookupConfig import *
+from Validators.ArgumentCountValidator import *
 
 
 class LookupCommand(AbstractDirectoryTraversalCommand):
     @classmethod
     def usage_string(cls):
         return "lookup command tries to find the list of your queries in a directory subtree.\n" + \
-               "it returns a dictionary with the search results.\n" + \
+               "it returns a list of files where the query was found for each of them.\n" + \
                "use it the following way:\n" + \
-               "\t'lookup <directory1> <config1>'\n" + \
-               "\t" + cls._note_preface() + "WORK IN PROGRESS!"
+               "\t'lookup <config1.json>'\n" + \
+               "\t" + cls._note_preface() + cls._argument_count_mismatch_message()
+
+    @staticmethod
+    def _argument_count_mismatch_message():
+        return "the command takes EXACTLY 1 argument!"
+
+    def _lookup_validation(self):
+        self._validation.add_validator(ArgumentCountValidator(self.arguments,
+                                                              1,
+                                                              self._argument_count_mismatch_message()))
 
     def _choose_writer(self, writer_type):
         return {
@@ -30,6 +40,7 @@ class LookupCommand(AbstractDirectoryTraversalCommand):
             self._results = {query: [] for query in self._config.queries}
             self._writer = self._choose_writer(self._config.writer_type)
             self._directory = self._config.directory_path
+            self._lookup_validation()
 
     @staticmethod
     def find_in_file(filename, query, start=0):
