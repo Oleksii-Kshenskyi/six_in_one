@@ -13,7 +13,19 @@ class LookupCommand(AbstractDirectoryTraversalCommand):
                "it returns a list of files where the query was found for each of them.\n" + \
                "use it the following way:\n" + \
                "\t'lookup <config1.json>'\n" + \
-               "\t" + cls._note_preface() + cls._argument_count_mismatch_message()
+               "\t" + cls._note_preface() + cls._argument_count_mismatch_message() + "\n" + \
+               "\t<config1.json> is a full path to a JSON file that has to contain the following fields:\n" + \
+               "\t>> 'directory_path' is a full path to a directory you'd like to search in;\n" + \
+               "\t>> 'queries' has to be a list of strings which contains all the queries you'd like to find in\n" + \
+               "\t\tthe directory;\n" + \
+               "\t>> 'writer_type' is a string which contains one of those two values: 'csv' or 'console'.\n" + \
+               "\t\t>>> 'csv' prints out the search results to a csv file;\n" + \
+               "\t\t>>> 'console' prints out the search results to console.\n" + \
+               "\t>> 'csv_path' has to be a full path to the csv file if 'writer_type' is 'csv'.\n" + \
+               "\t\tIf 'writer_type' is 'console', this value is ignored.\n" + \
+               "\t>> 'masks' is a list of strings with all the Python regex masks you'd like to apply to the file\n" \
+               "\t\tnames you're searching in. Can be left empty or unspecified if you don't want to use regex\n" + \
+               "\t\tfor your search.\n"
 
     @staticmethod
     def _argument_count_mismatch_message():
