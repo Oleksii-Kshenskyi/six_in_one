@@ -3,6 +3,7 @@ from PythonFileCommands.DeleteCommand import *
 from PythonSearchCommands.ListCommand import *
 from PythonSearchCommands.LookupCommand import *
 from PythonFileCommands.CopyCommand import *
+from PythonFileCommands.RenameCommand import *
 
 
 class CommandFactory(object):
@@ -20,6 +21,7 @@ class CommandFactory(object):
             "lookup": LookupCommand,
             "copy": CopyCommand,
             "move": MoveCommand,
+            "rename": RenameCommand,
         }.get(choice, NoneCommand)
 
     def create(self):

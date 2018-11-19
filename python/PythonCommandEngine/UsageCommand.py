@@ -4,6 +4,7 @@ from PythonFileCommands.DeleteCommand import *
 from PythonSearchCommands.ListCommand import *
 from PythonSearchCommands.LookupCommand import *
 from PythonFileCommands.MoveCommand import *
+from PythonFileCommands.RenameCommand import *
 
 
 class UsageCommand(AbstractCommand):
@@ -25,7 +26,7 @@ class UsageCommand(AbstractCommand):
 
     @staticmethod
     def _available_commands():
-        return "Available commands: " + ', '.join(["usage", "exit", "delete", "list", "lookup", "copy", "move"]) + "."
+        return "Available commands: " + ', '.join(["usage", "exit", "delete", "list", "lookup", "copy", "move", "rename"]) + "."
 
     @staticmethod
     def _command_unknown_preface():
@@ -44,6 +45,7 @@ class UsageCommand(AbstractCommand):
             "lookup": LookupCommand.usage_string(),
             "copy": CopyCommand.usage_string(),
             "move": MoveCommand.usage_string(),
+            "rename": RenameCommand.usage_string(),
             "": UsageCommand._available_commands()
         }.get(choice, UsageCommand._command_unknown_preface() + "\n\t" + UsageCommand._available_commands())
 
