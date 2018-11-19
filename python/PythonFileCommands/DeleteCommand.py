@@ -5,7 +5,7 @@ from Validators.FileExistenceValidator import *
 class DeleteCommand(AbstractUnaryFileCommand):
     @staticmethod
     def _file_existence_message():
-        return "cannot delete the file that doesn't exist."
+        return "the file doesn't exist."
 
     @classmethod
     def usage_string(cls):
