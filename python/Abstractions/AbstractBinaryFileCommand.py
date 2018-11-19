@@ -17,7 +17,7 @@ class AbstractBinaryFileCommand(AbstractCommand):
 
     @staticmethod
     def _first_arg_doesnt_exist():
-        return "the file at first argument doesn't exist!"
+        return "the file at the first argument doesn't exist!"
 
     @staticmethod
     def _stick_to_syntax_message():
