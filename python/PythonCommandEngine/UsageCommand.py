@@ -3,7 +3,7 @@ from Validators.ArgumentLimitValidator import *
 from PythonFileCommands.DeleteCommand import *
 from PythonSearchCommands.ListCommand import *
 from PythonSearchCommands.LookupCommand import *
-from PythonFileCommands.CopyCommand import *
+from PythonFileCommands.MoveCommand import *
 
 
 class UsageCommand(AbstractCommand):
@@ -25,7 +25,7 @@ class UsageCommand(AbstractCommand):
 
     @staticmethod
     def _available_commands():
-        return "Available commands: " + ', '.join(["usage", "exit", "delete", "list", "lookup", "copy"]) + "."
+        return "Available commands: " + ', '.join(["usage", "exit", "delete", "list", "lookup", "copy", "move"]) + "."
 
     @staticmethod
     def _command_unknown_preface():
@@ -43,6 +43,7 @@ class UsageCommand(AbstractCommand):
             "list": ListCommand.usage_string(),
             "lookup": LookupCommand.usage_string(),
             "copy": CopyCommand.usage_string(),
+            "move": MoveCommand.usage_string(),
             "": UsageCommand._available_commands()
         }.get(choice, UsageCommand._command_unknown_preface() + "\n\t" + UsageCommand._available_commands())
 

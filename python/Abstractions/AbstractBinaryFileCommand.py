@@ -49,7 +49,7 @@ class AbstractBinaryFileCommand(AbstractCommand):
                                                               else "",
                                                               self._first_arg_doesnt_exist()))
         self._validation.add_validator(ArgumentValueValidator(self.arguments[1]
-                                                              if len(self.arguments) >= 1
+                                                              if len(self.arguments) >= 2
                                                               else "",
                                                               "to",
                                                               self._stick_to_syntax_message()))

@@ -25,7 +25,7 @@ class CopyCommand(AbstractBinaryFileCommand):
                                                              if len(self.arguments) >= 3
                                                              else "",
                                                              self._destination_must_be_absolute_message()))
-        self._validation.add_validator(DirectoryExistenceValidator(self.arguments[2]
+        self._validation.add_validator(DirectoryExistenceValidator(Path(self.arguments[2]).parent
                                                                    if len(self.arguments) >= 3
                                                                    else "",
                                                                    self._dest_parent_doesnt_exist()))

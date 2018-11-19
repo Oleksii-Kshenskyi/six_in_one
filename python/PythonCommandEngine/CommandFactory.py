@@ -18,7 +18,8 @@ class CommandFactory(object):
             "delete": DeleteCommand,
             "list": ListCommand,
             "lookup": LookupCommand,
-            "copy": CopyCommand
+            "copy": CopyCommand,
+            "move": MoveCommand,
         }.get(choice, NoneCommand)
 
     def create(self):
