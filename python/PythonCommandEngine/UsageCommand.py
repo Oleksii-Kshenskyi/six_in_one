@@ -3,6 +3,7 @@ from Validators.ArgumentLimitValidator import *
 from PythonFileCommands.DeleteCommand import *
 from PythonSearchCommands.ListCommand import *
 from PythonSearchCommands.LookupCommand import *
+from PythonFileCommands.CopyCommand import *
 
 
 class UsageCommand(AbstractCommand):
@@ -41,6 +42,7 @@ class UsageCommand(AbstractCommand):
             "delete": DeleteCommand.usage_string(),
             "list": ListCommand.usage_string(),
             "lookup": LookupCommand.usage_string(),
+            "copy": CopyCommand.usage_string(),
             "": UsageCommand._available_commands()
         }.get(choice, UsageCommand._command_unknown_preface() + "\n\t" + UsageCommand._available_commands())
 

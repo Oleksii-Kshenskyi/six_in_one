@@ -2,6 +2,7 @@ from .NoneCommand import *
 from PythonFileCommands.DeleteCommand import *
 from PythonSearchCommands.ListCommand import *
 from PythonSearchCommands.LookupCommand import *
+from PythonFileCommands.CopyCommand import *
 
 
 class CommandFactory(object):
@@ -16,7 +17,8 @@ class CommandFactory(object):
             "usage": UsageCommand,
             "delete": DeleteCommand,
             "list": ListCommand,
-            "lookup": LookupCommand
+            "lookup": LookupCommand,
+            "copy": CopyCommand
         }.get(choice, NoneCommand)
 
     def create(self):
