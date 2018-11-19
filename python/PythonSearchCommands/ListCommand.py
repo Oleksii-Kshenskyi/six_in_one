@@ -1,5 +1,5 @@
 from Abstractions.AbstractDirectoryTraversalCommand import *
-from .Detail.ConsoleMapWriter import *
+from .Detail.ListDirectoryWriter import *
 from Validators.ArgumentCountValidator import *
 
 
@@ -23,9 +23,9 @@ class ListCommand(AbstractDirectoryTraversalCommand):
 
     def __init__(self, args):
         super().__init__(args)
-        self._writer = ConsoleMapWriter()
         self._results = {}
         self._directory = Path(self.arguments[0]) if self.arguments.__len__() > 0 else Path("")
+        self._writer = ListDirectoryWriter(self._directory)
         self._dir_traversal_validation()
         self._list_dir_validation()
 

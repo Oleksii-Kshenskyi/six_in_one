@@ -1,10 +1,9 @@
-import sys
 from App.CommandInterpreter import *
 
 
-def main(argv):
+def main():
     CommandInterpreter.run()
 
 
 if __name__ == "__main__":
-    main(sys.argv)
+    main()

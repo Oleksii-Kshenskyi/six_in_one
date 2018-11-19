@@ -3,7 +3,6 @@ from Validators.DirectoryNonExistenceValidator import *
 from Validators.FileExistenceValidator import *
 from Validators.ArgumentCountValidator import *
 from Validators.ArgumentValueValidator import *
-import os
 
 
 class AbstractBinaryFileCommand(AbstractCommand):
@@ -32,9 +31,6 @@ class AbstractBinaryFileCommand(AbstractCommand):
         self._destination = Path(self.arguments[2]
                                  if len(self.arguments) >= 3
                                  else "")
-        # if self._destination.exists() and self._destination.is_dir():
-        #     print("SOURCE NAME: {}".format(self._source.name))
-        #     self._destination = Path(os.path.join(self._destination, self._source.name))
 
     def _binary_validation(self):
         self._validation.add_validator(ArgumentCountValidator(self.arguments,
